@@ -1,0 +1,93 @@
+.button {
+    &.alternative {
+        --color-hover: #60a5fa;
+        --background: #60a5fa;
+        --hover-back: #60a5fa;
+        --hover-front: #F6F8FF;
+    }
+    &.simple {
+        --background: #2c85f1;
+        --background-hover: #60a5fa;
+    }
+}
+
+.button {
+    --color: #fff;
+    --color-hover: var(--color);
+    --background: #2B3044;
+    --background-hover: var(--background);
+    --hover-back: #2c85f1;
+    --hover-front: #60a5fa;
+    padding: 8px 28px;
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    border: none;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    color: var(--c, var(--color));
+    background: var(--b, var(--background));
+    transition: color .2s linear var(--c-d, .2s), background .3s linear var(--b-d, .2s);
+    &:not(.simple) {
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            background: var(--pb, var(--hover-back));
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200%;
+            border-radius: var(--br, 40%);
+            transform: translateY(var(--y, 50%));
+            transition: transform var(--d, .4s) ease-in var(--d-d, 0s), border-radius .5s ease var(--br-d, .02s);
+
+        }
+        &:after {
+            --pb: var(--hover-front);
+            --d: .44s;
+        }
+    }
+    div {
+        z-index: 1;
+        position: relative;
+        display: flex;
+        span {
+            display: block;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            animation: var(--name, none) .7s linear forwards .18s;
+        }
+    }
+    &.in {
+        --name: move;
+        &:not(.out) {
+            --c: var(--color-hover);
+            --b: var(--background-hover);
+            &:before,
+            &:after {
+                --y: 0;
+                --br: 5%;
+            }
+            &:after {
+                --br: 10%;
+                --d-d: .02s;
+            }
+        }
+        &.out {
+            --name: move-out;
+            &:before {
+                --d-d: .06s;
+            }
+        }
+    }
+}
+
+
