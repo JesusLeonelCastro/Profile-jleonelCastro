@@ -57,3 +57,36 @@ body {
 /* MARCADO DE LOS TITULOS*/
 
 
+ /* Estilos para el scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Estilos para las secciones (debes crearlas) */
+        section {
+            min-height: 100vh;
+            padding: 4rem 0;
+        }
+        
+        /* Estilos para el menú móvil */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            width: 100%;
+            padding: 1rem;
+            z-index: 1000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        /* Ajustes para el contenido */
+        .content {
+            position: relative;
+            z-index: 1;
+        }

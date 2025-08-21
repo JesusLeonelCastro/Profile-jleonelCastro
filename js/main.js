@@ -123,3 +123,21 @@ document.querySelectorAll('.button').forEach(button => {
 
 });
   // FINAL DE LA FUNCIONALIDAD DEL BOTON
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+
+    // Opcional: cerrar menú al hacer clic en un link
+    const links = mobileMenu.querySelectorAll("a");
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+        });
+    });
+});
