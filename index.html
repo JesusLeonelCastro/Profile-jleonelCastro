@@ -24,38 +24,40 @@
         <div class="pt-10 px-6">
 
             <!-- HEADER -->
-            <header class="container mx-auto px-6 py-4 fixed top-0 left-0 right-0 z-50 bg-transparent">
+            <header class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
                 <br>
-                <div class="flex justify-between items-center">
+                <div class="container mx-auto flex justify-between items-center px-6 py-4">
+
+                    <!-- LOGO -->
                     <a href="#" class="text-2xl font-bold text-white">
                         <span class="text-blue-400">"</span>leonelcastro<span class="text-blue-400">"</span>
                     </a>
-                    <ul class="hidden md:flex space-x-8">
-                        <li><a href="#about" class="text-xl font-mono nav-link-animated">Acerca de mi </a></li>
-                        <li><a href="#tech" class="text-xl font-mono nav-link-animated">Experiencia</a></li>
-                        <li><a href="#Proyectos" class="text-xl font-mono nav-link-animated">Proyectos</a></li>
-                        <li><a href="#contact" class="text-xl font-mono nav-link-animated">Contacto</a></li>
-                    </ul>
 
-                    <!-- Botón menú móvil -->
-                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
+                    <!-- NAV LINKS (desktop) -->
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="#about" class="text-xl font-mono nav-link-animated">Acerca de mi</a>
+                        <a href="#tech" class="text-xl font-mono nav-link-animated">Experiencia</a>
+                        <a href="#Proyectos" class="text-xl font-mono nav-link-animated">Proyectos</a>
+                        <a href="#contact" class="text-xl font-mono nav-link-animated">Contacto</a>
 
-                    <div id="mobile-menu" class="mobile-menu md:hidden mt-4">
-                        <ul class="flex flex-col space-y-4">
-                            <li><a href="#about" class="block text-xl font-mono nav-link-animated py-2">Acerca de mí</a>
-                            </li>
-                            <li><a href="#tech" class="block text-xl font-mono nav-link-animated py-2">Experiencia</a>
-                            </li>
-                            <li><a href="#Proyectos"
-                                    class="block text-xl font-mono nav-link-animated py-2">Proyectos</a></li>
-                            <li><a href="#contact" class="block text-xl font-mono nav-link-animated py-2">Contacto</a>
-                            </li>
-                        </ul>
-                    </div>
+                        <!-- BOTÓN -->
+                        <button class="Btn backdrop-blur-sm">
+                            <span class="svgContainer">
+                                <svg fill="white" viewBox="0 0 496 512" height="1.6em">
+                                    <path
+                                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="BG"></span>
+                        </button>
+                    </nav>
+
                 </div>
+
+
             </header>
+
 
 
             <!-- HERO (Presentación inicial) -->
@@ -63,35 +65,124 @@
                 <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-left">
                     <br><br><br><br><br><br><br>
                     <h1 class=" text-3xl font-mono text-blue-400">Hola, mi nombre es Jesus Leonel</h1>
-                    <p class="text-left">Bachiller de la carrera de ingeniería de sistemas con ganas de participar en
-                        proyectos...</p>
+                    <br>
+                    <p class="text-left text-2xl ">Desarrollador .NET con mas de 3 años de experiencia</p>
+                    <p class="text-left text-2xl ">con desarrollo de sistemas webs con buenas practicas</p>
+                    <p class="text-left text-2xl ">codigo limpio y escalable.</p>
+
                     <div class="mt-8">
                         <br><br><br><br>
-                        <button class="button">Contáctame</button>
                     </div>
                 </div>
             </section>
 
             <!-- ABOUT -->
-            <section id="about" class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-center max-w-2xl">
-                    <h2 class="text-4xl font-bold mb-4 text-blue-400">Acerca de mí</h2>
-                    <p class="text-lg leading-relaxed">
-                        Aquí puedes escribir sobre tu formación, intereses y lo que te motiva en tu carrera profesional.
+            <section id="about" class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center ">
+                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-left">
+                    <br><br><br><br><br><br><br>
+                    <h2 class="text-4xl font-bold mb-4 text-blue-400 text-left">Acerca de mí</h2>
+
+                    <p class="text-lg leading-relaxed text-left">
+                        Soy Bachiller en Ingeniería de Sistemas con experiencia en proyectos desarrollados en
+                        <span class="text-blue-400 font-semibold">.NET , VITE + REACT , JAVA NETBEANS </span>
+                        y aplicaciones de entorno de escritoio en Java Me caracterizo por ser <span
+                            class="text-blue-400 font-semibold">autodidacta</span>, con rápida
+                        capacidad de adaptación al trabajo en equipo y con una pasión especial por la
+                        <span class="text-blue-400 font-semibold">automatización de procesos</span>.
+                        En mis tiempos libres disfruto experimentar con nuevas tecnologías y crear soluciones que
+                        optimicen tareas.
                     </p>
+
+
+
                 </div>
             </section>
 
             <!-- EXPERIENCIA -->
-            <section id="tech" class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-center max-w-2xl">
-                    <h2 class="text-4xl font-bold mb-4 text-blue-400">Experiencia</h2>
-                    <p class="text-lg leading-relaxed">
-                        Aquí puedes detallar tus habilidades técnicas, lenguajes de programación y herramientas que
-                        dominas.
-                    </p>
+            <section id="tech" class="container mx-auto px-6 py-32 min-h-[80vh]">
+                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-left">
+
+                    <!-- Título queda a la izquierda -->
+                    <h2 class="text-4xl font-bold mb-12 text-blue-400">02. Experiencia</h2>
+                    <br><br><br><br><br>
+                    <!-- Contenido centrado -->
+                    <div class="flex justify-center ">
+                        <!-- Sidebar de empresas -->
+                        <div class="w-1/4 border-l-2 border-gray-700 pl-4 space-y-4 ">
+                            <button onclick="showExp('freelance')"
+                                class="block text-left px-2 py-1 text-gray-400 hover:text-blue-300" id="btn-freelance">
+                                Freelancer
+                            </button>
+                            <button onclick="showExp('otro')"
+                                class="block text-left px-2 py-1 text-gray-400 hover:text-blue-300" id="btn-otro">
+                                Universidad
+                            </button>
+                            <button onclick="showExp('muni')"
+                                class="block text-left px-2 py-1 text-blue-400 font-semibold hover:text-blue-300"
+                                id="btn-muni">
+                                Municipalidad
+                            </button>
+                        </div>
+
+                        <!-- Contenido -->
+                        <div class="w-3/4 pl-8 text-2xl " id="exp-content ">
+                            <!-- Municipalidad -->
+                            <div id="exp-muni" class="exp-item">
+                                <h3 class="text-2xl font-bold text-white">Practicante de Desarrollo | <span
+                                        class="text-blue-400">Municipalidad</span></h3>
+                                <p class="text-gray-400 mb-4">Marzo 2022 — Julio 2022</p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                                    <li>Apoyo en el área de infraestructura tecnológica.</li>
+                                    <li>Desarrollo de sistema de Informes Técnicos con <span
+                                            class="text-blue-400">ASP.NET</span> y <span class="text-blue-400">SQL
+                                            Server</span>.</li>
+                                    <li>Desarrollo de pequeños módulos internos.</li>
+                                    <li>Documentación de procesos y mejoras.</li>
+                                    <li>Soporte en la automatización de tareas administrativas.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Freelancer -->
+                            <div id="exp-freelance" class="exp-item hidden">
+                                <h3 class="text-2xl font-bold text-white">Desarrollador Web | <span
+                                        class="text-blue-400">Freelancer</span></h3>
+                                <p class="text-gray-400 mb-4">2021 — Actualidad</p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                                    <li>Desarrollo de landing pages y sistemas web.</li>
+                                    <li>Uso de <span class="text-blue-400">ASP.NET MVC, Vite + React y MySQL</span>.
+                                    </li>
+                                    <li>Optimización de procesos y carga de aplicaciones.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Otra Empresa -->
+                            <div id="exp-otro" class="exp-item hidden">
+                                <h3 class="text-2xl font-bold text-white">Front-End Developer | <span
+                                        class="text-blue-400">Universidad</span></h3>
+                                <p class="text-gray-400 mb-4">2020 — 2021</p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                                    <li>Soporte de TI en el área de Beca18 - UPT.</li>
+                                    <li>Desarrollo de Landing Page de Beca18 con <span class="text-blue-400">HTML</span>
+                                        y <span class="text-blue-400">CSS</span>.</li>
+                                    <li>Análisis de procesos de automatización.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+
+
+            <script>
+                function showExp(id) {
+                    document.querySelectorAll(".exp-item").forEach(el => el.classList.add("hidden"));
+                    document.querySelector("#exp-" + id).classList.remove("hidden");
+
+                    document.querySelectorAll("button").forEach(btn => btn.classList.remove("text-blue-400", "font-semibold"));
+                    document.querySelector("#btn-" + id).classList.add("text-blue-400", "font-semibold");
+                }
+            </script>
+
 
             <!-- PROYECTOS -->
             <section id="Proyectos" class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center">
