@@ -141,3 +141,140 @@ document.querySelectorAll('.button').forEach(button => {
         });
     });
 });
+
+// Proyectos
+document.addEventListener('DOMContentLoaded', () => {
+    const expButtons = document.querySelectorAll('#exp-menu button');
+    const expItems = document.querySelectorAll('.exp-item');
+
+    function showExp(id) {
+        expItems.forEach(e => e.classList.add('hidden'));
+        const target = document.querySelector('#exp-' + id);
+        if (target) target.classList.remove('hidden');
+
+        expButtons.forEach(b => b.classList.remove('text-blue-400', 'font-semibold'));
+        const activeBtn = document.querySelector('#btn-' + id);
+        if (activeBtn) activeBtn.classList.add('text-blue-400', 'font-semibold');
+    }
+
+    expButtons.forEach(btn => {
+        btn.addEventListener('click', () => showExp(btn.dataset.exp));
+    });
+
+    // Inicial
+    showExp('muni');
+
+    // CARRUSEL PROYECTOS
+    const track = document.getElementById('projectsTrack');
+    if (track) {
+        let index = 0;
+        let width = track.clientWidth;
+        const slides = Array.from(track.children);
+        const total = slides.length;
+        const prevBtn = document.getElementById('projPrev');
+        const nextBtn = document.getElementById('projNext');
+        const dotsWrap = document.getElementById('projDots');
+
+        function setWidths() {
+            width = track.clientWidth;
+            slides.forEach(s => s.style.minWidth = width + 'px');
+            move();
+        }
+
+        function buildDots() {
+            dotsWrap.innerHTML = '';
+            for (let i = 0; i < total; i++) {
+                const d = document.createElement('button');
+                d.className = 'proj-dot w-3 h-3 rounded-full bg-white-400/40 hover:bg-white-400 transition';
+                d.setAttribute('aria-label', 'Ir a proyecto ' + (i + 1));
+                d.addEventListener('click', () => {
+                    index = i;
+                    move();
+                });
+                dotsWrap.appendChild(d);
+            }
+        }
+
+        function updateDots() {
+            dotsWrap.querySelectorAll('.proj-dot').forEach((d, i) => {
+                d.classList.toggle('bg-white-400', i === index);
+                d.classList.toggle('bg-blue-400/40', i !== index);
+                d.classList.toggle('scale-110', i === index);
+            });
+        }
+
+        function move() {
+            track.style.transform = `translateX(-${index * width}px)`;
+            updateDots();
+        }
+
+        function next() {
+            index = (index + 1) % total;
+            move();
+        }
+
+        function prev() {
+            index = (index - 1 + total) % total;
+            move();
+        }
+
+        nextBtn?.addEventListener('click', next);
+        prevBtn?.addEventListener('click', prev);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') next();
+            if (e.key === 'ArrowLeft') prev();
+        });
+
+        window.addEventListener('resize', setWidths);
+
+        buildDots();
+        setWidths();
+
+        // Auto-play opcional (descomenta si lo quieres)
+        // setInterval(next, 7000);
+    }
+});
+
+// ...existing code...
+
+// Galerías de imágenes dentro de cada slide
+function initProjectGalleries() {
+    document.querySelectorAll('[data-gallery]').forEach(gallery => {
+        const mainImg = gallery.querySelector('[data-gallery-main]');
+        const thumbs = gallery.querySelectorAll('[data-gallery-thumbs] .gallery-thumb');
+
+        thumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const newSrc = btn.getAttribute('data-src');
+                
+                if (mainImg.getAttribute('src') === newSrc) return;
+
+                // estado visual thumbnails
+                thumbs.forEach(t => t.classList.remove('ring-blue-400'));
+                btn.classList.add('ring-blue-400');
+
+                // transición suave
+                mainImg.classList.add('opacity-0');
+                const img = new Image();
+                img.onload = () => {
+                    mainImg.src = newSrc;
+                    requestAnimationFrame(() => {
+                        mainImg.classList.remove('opacity-0');
+                    });
+                };
+                img.src = newSrc;
+            });
+        });
+
+        // marcar primero activo
+        const first = thumbs[0];
+        if (first) first.classList.add('ring-blue-400');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initProjectGalleries();
+});
+
+// ...existing code...

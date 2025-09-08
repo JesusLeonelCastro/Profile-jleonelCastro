@@ -35,11 +35,19 @@
 
                     <!-- NAV LINKS (desktop) -->
                     <nav class="hidden md:flex items-center space-x-8">
-                        <a href="#about" class="text-xl font-mono nav-link-animated">Acerca de mi</a>
-                        <a href="#tech" class="text-xl font-mono nav-link-animated">Experiencia</a>
-                        <a href="#Proyectos" class="text-xl font-mono nav-link-animated">Proyectos</a>
-                        <a href="#contact" class="text-xl font-mono nav-link-animated">Contacto</a>
-
+                        <a href="#about" class="text-xl font-mono nav-link-animated flex items-center gap-2">
+                            <span class="text-blue-400">1.</span>
+                            <span>Acerca de mí</span>
+                        </a>
+                        <a href="#tech" class="text-xl font-mono nav-link-animated">
+                            <span class="text-blue-400">2.</span> <span>Experiencia</span>
+                        </a>
+                        <a href="#Proyectos" class="text-xl font-mono nav-link-animated">
+                            <span class="text-blue-400">3.</span> <span>Proyectos</span>
+                        </a>
+                        <a href="#contact" class="text-xl font-mono nav-link-animated">
+                            <span class="text-blue-400">4.</span> <span>Contacto</span>
+                        </a>
                         <!-- BOTÓN -->
                         <button class="Btn backdrop-blur-sm">
                             <span class="svgContainer">
@@ -92,23 +100,22 @@
                         En mis tiempos libres disfruto experimentar con nuevas tecnologías y crear soluciones que
                         optimicen tareas.
                     </p>
-
-
-
                 </div>
             </section>
 
             <!-- EXPERIENCIA -->
             <section id="tech" class="container mx-auto px-6 py-32 min-h-[80vh]">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-left">
+                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-lg text-left">
 
-                    <!-- Título queda a la izquierda -->
+                    <!-- Título -->
                     <h2 class="text-4xl font-bold mb-12 text-blue-400">02. Experiencia</h2>
-                    <br><br><br><br><br>
-                    <!-- Contenido centrado -->
-                    <div class="flex justify-center ">
+                    <br><br><br><br>
+
+                    <!-- Contenido -->
+                    <div class="flex justify-left">
+
                         <!-- Sidebar de empresas -->
-                        <div class="w-1/4 border-l-2 border-gray-700 pl-4 space-y-4 ">
+                        <div class="w-1/4 border-l-2 border-gray-700 pl-4 space-y-4">
                             <button onclick="showExp('freelance')"
                                 class="block text-left px-2 py-1 text-gray-400 hover:text-blue-300" id="btn-freelance">
                                 Freelancer
@@ -122,20 +129,27 @@
                                 id="btn-muni">
                                 Municipalidad
                             </button>
+                            <button onclick="showExp('edu')"
+                                class="block text-left px-2 py-1 text-gray-400 hover:text-blue-300" id="btn-edu">
+                                Educación
+                            </button>
                         </div>
 
-                        <!-- Contenido -->
-                        <div class="w-3/4 pl-8 text-2xl " id="exp-content ">
-                            <!-- Municipalidad -->
+                        <!-- Contenido dinámico -->
+                        <div class="w-3/4 pl-8 text-2xl" id="exp-content">
+
+                            <!-- Municipalidad (visible por defecto) -->
                             <div id="exp-muni" class="exp-item">
-                                <h3 class="text-2xl font-bold text-white">Practicante de Desarrollo | <span
-                                        class="text-blue-400">Municipalidad</span></h3>
-                                <p class="text-gray-400 mb-4">Marzo 2022 — Julio 2022</p>
+                                <h3 class="text-2xl font-bold text-white">BACK-END DEVELOPER |
+                                    <span class="text-blue-400">MUNICIPALIDAD</span>
+                                </h3>
+                                <p class="text-gray-400 mb-4">Junio 2024 — Octubre 2024</p><br>
                                 <ul class="list-disc list-inside space-y-2 text-gray-300">
                                     <li>Apoyo en el área de infraestructura tecnológica.</li>
-                                    <li>Desarrollo de sistema de Informes Técnicos con <span
-                                            class="text-blue-400">ASP.NET</span> y <span class="text-blue-400">SQL
-                                            Server</span>.</li>
+                                    <li>Desarrollo de sistema de Informes Técnicos con
+                                        <span class="text-blue-400">ASP.NET</span> y
+                                        <span class="text-blue-400">SQL Server</span>.
+                                    </li>
                                     <li>Desarrollo de pequeños módulos internos.</li>
                                     <li>Documentación de procesos y mejoras.</li>
                                     <li>Soporte en la automatización de tareas administrativas.</li>
@@ -144,73 +158,395 @@
 
                             <!-- Freelancer -->
                             <div id="exp-freelance" class="exp-item hidden">
-                                <h3 class="text-2xl font-bold text-white">Desarrollador Web | <span
-                                        class="text-blue-400">Freelancer</span></h3>
-                                <p class="text-gray-400 mb-4">2021 — Actualidad</p>
+                                <h3 class="text-2xl font-bold text-white">FULLSTACK WEB DEVELOPER |
+                                    <span class="text-blue-400">FREELANCER</span>
+                                </h3>
+                                <p class="text-gray-400 mb-4">Febrero 2025 — Actualidad</p><br>
                                 <ul class="list-disc list-inside space-y-2 text-gray-300">
-                                    <li>Desarrollo de landing pages y sistemas web.</li>
-                                    <li>Uso de <span class="text-blue-400">ASP.NET MVC, Vite + React y MySQL</span>.
+                                    <li>Rediseño de landing pages.</li>
+                                    <li>Desarrollo de un sistema de gestión de inventario - SAN JOSE.</li>
+                                    <li>Desarrollo de un sistema de gestión de ventas de comida rápida - JOES GRILLS.
                                     </li>
-                                    <li>Optimización de procesos y carga de aplicaciones.</li>
                                 </ul>
                             </div>
 
-                            <!-- Otra Empresa -->
+                            <!-- Universidad -->
                             <div id="exp-otro" class="exp-item hidden">
-                                <h3 class="text-2xl font-bold text-white">Front-End Developer | <span
-                                        class="text-blue-400">Universidad</span></h3>
-                                <p class="text-gray-400 mb-4">2020 — 2021</p>
+                                <h3 class="text-2xl font-bold text-white">FRONT-END DEVELOPER |
+                                    <span class="text-blue-400">UNIVERSIDAD</span>
+                                </h3>
+                                <p class="text-gray-400 mb-4">Octubre 2024 — Enero 2025</p><br>
                                 <ul class="list-disc list-inside space-y-2 text-gray-300">
                                     <li>Soporte de TI en el área de Beca18 - UPT.</li>
-                                    <li>Desarrollo de Landing Page de Beca18 con <span class="text-blue-400">HTML</span>
-                                        y <span class="text-blue-400">CSS</span>.</li>
+                                    <li>Desarrollo de Landing Page de Beca18 con
+                                        <span class="text-blue-400">HTML</span> y
+                                        <span class="text-blue-400">CSS</span>.
+                                    </li>
                                     <li>Análisis de procesos de automatización.</li>
                                 </ul>
                             </div>
+
+                            <!-- Educación -->
+                            <div id="exp-edu" class="exp-item hidden">
+                                <h3 class="text-2xl font-bold text-white">ESTUDIANTE |
+                                    <span class="text-blue-400">UNIVERSIDAD</span>
+                                </h3>
+                                <p class="text-gray-400 mb-4">Octubre 2024 — Enero 2025</p><br>
+                                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                                    <li>Trabajos prácticos con sistemas de escritorio y webs.</li>
+                                    <li>Desarrollo de sistema de escritorio con NetBeans.</li>
+                                    <li>Aprendizaje en Azure y AWS.</li>
+                                    <li>Desarrollos con C# ASP.NET.</li>
+                                </ul>
+
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </section>
-
 
             <script>
                 function showExp(id) {
                     document.querySelectorAll(".exp-item").forEach(el => el.classList.add("hidden"));
                     document.querySelector("#exp-" + id).classList.remove("hidden");
 
-                    document.querySelectorAll("button").forEach(btn => btn.classList.remove("text-blue-400", "font-semibold"));
+                    document.querySelectorAll(".w-1/4 button").forEach(btn =>
+                        btn.classList.remove("text-blue-400", "font-semibold")
+                    );
                     document.querySelector("#btn-" + id).classList.add("text-blue-400", "font-semibold");
                 }
             </script>
 
 
-            <!-- PROYECTOS -->
-            <section id="Proyectos" class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-center max-w-4xl">
-                    <h2 class="text-4xl font-bold mb-4 text-blue-400">Proyectos</h2>
-                    <p class="text-lg leading-relaxed">
-                        Muestra algunos de tus proyectos destacados con una breve descripción y enlaces a GitHub o
-                        demos.
-                    </p>
-                </div>
-            </section>
 
-            <!-- CONTACTO -->
-            <section id="contact" class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-center max-w-2xl">
-                    <h2 class="text-4xl font-bold mb-4 text-blue-400">Contacto</h2>
-                    <p class="text-lg leading-relaxed mb-6">
-                        Si deseas trabajar conmigo o tienes alguna consulta, no dudes en escribirme.
-                    </p>
-                    <form class="space-y-4">
-                        <input type="text" placeholder="Tu nombre" class="w-full px-4 py-2 rounded-lg text-black">
-                        <input type="email" placeholder="Tu correo" class="w-full px-4 py-2 rounded-lg text-black">
-                        <textarea placeholder="Tu mensaje" class="w-full px-4 py-2 rounded-lg text-black"></textarea>
-                        <button
-                            class="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white font-semibold">Enviar</button>
-                    </form>
+            <!-- PROYECTOS -->
+            <section id="Proyectos" class="container mx-auto px-6 py-32 min-h-screen">
+                <div class="bg-blue/10 p-8 rounded-lg backdrop-blur-sm">
+                    <h2 class="text-4xl font-bold mb-2 text-blue-400">Proyectos</h2>
+                    <p class="text-lg text-gray-300 mb-10">Algunos trabajos y desarrollos personales.</p>
+
+                    <div class="relative select-none" id="projects-carousel">
+                        <!-- Track -->
+                        <div id="projectsTrack" class="flex transition-transform duration-500 ease-out">
+                            <!-- Slide 1 -->
+                            <div class="min-w-full px-2 ">
+                                <article
+                                    class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
+
+                                    <!-- GALERÍA (principal + miniaturas) -->
+                                    <div class="basis-1/2 " data-gallery>
+                                        <!-- Imagen principal -->
+                                        <div
+                                            class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
+                                            <img data-gallery-main src="asset/proyectos/joe/joe1.png" alt="JOES GRILLS"
+                                                class="w-full h-full object-cover transition-opacity duration-300 pointer-events-none select-none">
+                                        </div>
+
+                                        <!-- Thumbnails -->
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1" data-gallery-thumbs>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe1.png">
+                                                <img src="asset/proyectos/joe/joe1.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe2.png">
+                                                <img src="asset/proyectos/joe/joe2.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe3.png">
+                                                <img src="asset/proyectos/joe/joe3.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe4.png">
+                                                <img src="asset/proyectos/joe/joe4.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe10.png">
+                                                <img src="asset/proyectos/joe/joe10.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe8.png">
+                                                <img src="asset/proyectos/joe/joe8.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe4.4.png">
+                                                <img src="asset/proyectos/joe/joe4.4.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe9.png">
+                                                <img src="asset/proyectos/joe/joe9.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe7.png">
+                                                <img src="asset/proyectos/joe/joe7.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Texto -->
+                                    <div class="basis-1/2 flex flex-col">
+                                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
+                                            Sistema de gestión de ventas de comida rápida - JOES GRILLS
+                                        </h3>
+                                        <br>
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"> <span class="font-semibold text-blue-300">Administrador</span>
+                                            - Gráficos Estadísticos - Gestión Categorías - Gestión Platos - Gestión
+                                            Mesas - Gestión Salsas - Historial Ventas - Reportes - Tickets Internos.
+                                        </p>
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"> <span class="font-semibold text-blue-300">Empleado</span>
+                                            - Tomar pedido - Pedidos Activos - Tickets Internos.
+                                        </p>
+                                        <br>
+                                        <p class=" mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologias
+                                        </p>
+                                        <ul class="flex flex-wrap gap-2 text-[11px] font-mono mb-6">
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Vite</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">React</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Node.js</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Tailwind</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Supabase</li>
+                                        </ul>
+                                        <div class="mt-auto flex gap-4 text-sm">
+                                            <a href="https://github.com/JesusLeonelCastro/Sistema-Gestion-Snack_Joe.git"
+                                                class="text-gray-400 hover:text-blue-400" target="_blank"
+                                                rel="noopener noreferrer">GitHub</a>
+                                            <a href="https://lavender-crane-734833.hostingersite.com/login"
+                                                class="text-gray-400 hover:text-blue-400" target="_blank"
+                                                rel="noopener noreferrer">Demo</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- Slide 2 (REEMPLAZADO CON GALERÍA) -->
+                            <div class="min-w-full px-2">
+                                <article
+                                    class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
+
+                                    <!-- GALERÍA -->
+                                    <div class="basis-1/2" data-gallery>
+                                        <div
+                                            class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
+                                            <img data-gallery-main src="asset/proyectos/fastfood/fast1.png"
+                                                alt="Ventas Fast Food"
+                                                class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
+                                        </div>
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1" data-gallery-thumbs>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/fastfood/fast1.png">
+                                                <img src="asset/proyectos/fastfood/fast1.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/fastfood/fast2.png">
+                                                <img src="asset/proyectos/fastfood/fast2.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/fastfood/fast3.png">
+                                                <img src="asset/proyectos/fastfood/fast3.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- TEXTO -->
+                                    <div class="basis-1/2 flex flex-col">
+                                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
+                                            Ventas Fast Food</h3>
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                            Módulos de pedidos, boletas, control de insumos y dashboard de métricas.
+                                        </p>
+                                        <p class="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías
+                                        </p>
+                                        <ul class="flex flex-wrap gap-2 text-[11px] font-mono mb-6">
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">C#</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">EF Core</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">SQL</li>
+                                        </ul>
+                                        <div class="mt-auto flex gap-4 text-sm">
+                                            <a href="#" class="text-gray-400 hover:text-blue-400" target="_blank"
+                                                rel="noopener noreferrer">GitHub</a>
+                                            <a href="#" class="text-gray-400 hover:text-blue-400" target="_blank"
+                                                rel="noopener noreferrer">Demo</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- Slide 3 (REEMPLAZADO CON GALERÍA) -->
+                            <div class="min-w-full px-2">
+                                <article
+                                    class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
+
+                                    <div class="basis-1/2" data-gallery>
+                                        <div
+                                            class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
+                                            <img data-gallery-main src="asset/proyectos/beca18/beca1.png"
+                                                alt="Landing Beca18"
+                                                class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
+                                        </div>
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1" data-gallery-thumbs>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/beca18/beca1.png">
+                                                <img src="asset/proyectos/beca18/beca1.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/beca18/beca2.png">
+                                                <img src="asset/proyectos/beca18/beca2.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/beca18/beca3.png">
+                                                <img src="asset/proyectos/beca18/beca3.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="basis-1/2 flex flex-col">
+                                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
+                                            Landing Beca18</h3>
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                            Página informativa enfocada en captación, responsive y optimizada.
+                                        </p>
+                                        <p class="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías
+                                        </p>
+                                        <ul class="flex flex-wrap gap-2 text-[11px] font-mono mb-6">
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">HTML</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">CSS</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">SEO</li>
+                                        </ul>
+                                        <div class="mt-auto flex gap-4 text-sm">
+                                            <a href="#" class="text-gray-400 hover:text-blue-400" target="_blank"
+                                                rel="noopener noreferrer">GitHub</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- Slide 4 (REEMPLAZADO CON GALERÍA) -->
+                            <div class="min-w-full px-2">
+                                <article
+                                    class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
+
+                                    <div class="basis-1/2" data-gallery>
+                                        <div
+                                            class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
+                                            <img data-gallery-main src="asset/proyectos/automation/auto1.png"
+                                                alt="Automatización"
+                                                class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
+                                        </div>
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1" data-gallery-thumbs>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/automation/auto1.png">
+                                                <img src="asset/proyectos/automation/auto1.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/automation/auto2.png">
+                                                <img src="asset/proyectos/automation/auto2.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/automation/auto3.png">
+                                                <img src="asset/proyectos/automation/auto3.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="basis-1/2 flex flex-col">
+                                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
+                                            Automatización Tareas</h3>
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                            Scripts y utilidades para reducir tiempos manuales y errores operativos.
+                                        </p>
+                                        <p class="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías
+                                        </p>
+                                        <ul class="flex flex-wrap gap-2 text-[11px] font-mono mb-6">
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">PowerShell</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Batch</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Docs</li>
+                                        </ul>
+                                        <div class="mt-auto flex gap-4 text-sm">
+                                            <a href="#" class="text-gray-400 hover:text-blue-400" target="_blank"
+                                                rel="noopener noreferrer">GitHub</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+
+                        </div>
+
+                        <!-- Controles -->
+                        <button type="button" id="projPrev"
+                            class="absolute top-1/2 -left-3 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/70 border border-gray-700 flex items-center justify-center text-blue-300 hover:text-white hover:border-blue-400 hover:bg-gray-800/80 transition">
+                            ‹
+                        </button>
+                        <button type="button" id="projNext"
+                            class="absolute top-1/2 -right-3 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-900/70 border border-gray-700 flex items-center justify-center text-blue-300 hover:text-white hover:border-blue-400 hover:bg-gray-800/80 transition">
+                            ›
+                        </button>
+
+                        <!-- Dots -->
+                        <div id="projDots" class="flex gap-2 justify-center mt-8"></div>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <a href="https://github.com/JesusLeonelCastro" target="_blank"
+                            class="inline-block px-6 py-2 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition">
+                            Ver más en GitHub
+                        </a>
+                    </div>
                 </div>
-            </section>
+
+                <!-- CONTACTO -->
+                <section id="contact"
+                    class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center">
+                    <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-center max-w-2xl">
+                        <h2 class="text-4xl font-bold mb-4 text-blue-400">Contacto</h2>
+                        <p class="text-lg leading-relaxed mb-6">
+                            Si deseas trabajar conmigo o tienes alguna consulta, no dudes en escribirme.
+                        </p>
+                        <form class="space-y-4">
+                            <input type="text" placeholder="Tu nombre" class="w-full px-4 py-2 rounded-lg text-black">
+                            <input type="email" placeholder="Tu correo" class="w-full px-4 py-2 rounded-lg text-black">
+                            <textarea placeholder="Tu mensaje"
+                                class="w-full px-4 py-2 rounded-lg text-black"></textarea>
+                            <button
+                                class="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white font-semibold">Enviar</button>
+                        </form>
+                    </div>
+                </section>
 
 
         </div>
