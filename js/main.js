@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // FINAL DE LA CONFIGURACION DE PARTICLES.JS 
 
-
 document.addEventListener('DOMContentLoaded', function() {
   // Elementos del DOM
   const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -123,8 +122,6 @@ document.querySelectorAll('.button').forEach(button => {
 
 });
   // FINAL DE LA FUNCIONALIDAD DEL BOTON
-
-
   document.addEventListener("DOMContentLoaded", () => {
     const menuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
@@ -236,9 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ...existing code...
 
-// Galerías de imágenes dentro de cada slide
 function initProjectGalleries() {
     document.querySelectorAll('[data-gallery]').forEach(gallery => {
         const mainImg = gallery.querySelector('[data-gallery-main]');
@@ -277,4 +272,78 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectGalleries();
 });
 
+(function () {
+    const toggle = document.getElementById('menuToggle');
+    const panel = document.getElementById('mobileNav');
+    const closeBtn = document.getElementById('menuClose');
+    const overlay = document.getElementById('menuOverlay');
+    if (!toggle || !panel || !overlay) return;
+
+    let open = false;
+    const bars = toggle.querySelectorAll('span');
+
+    function applyState() {
+        panel.classList.toggle('translate-x-full', !open);
+        panel.classList.toggle('translate-x-0', open);
+        overlay.classList.toggle('opacity-0', !open);
+        overlay.classList.toggle('opacity-100', open);
+        overlay.classList.toggle('pointer-events-none', !open);
+        toggle.setAttribute('aria-expanded', open);
+
+        if (bars.length === 3) {
+            bars[0].classList.toggle('translate-y-[7px]', open);
+            bars[0].classList.toggle('rotate-45', open);
+            bars[1].classList.toggle('opacity-0', open);
+            bars[2].classList.toggle('-translate-y-[7px]', open);
+            bars[2].classList.toggle('-rotate-45', open);
+        }
+        document.body.classList.toggle('overflow-hidden', open);
+    }
+
+    function setState(force) {
+        open = typeof force === 'boolean' ? force : !open;
+        applyState();
+    }
+
+    toggle.addEventListener('click', () => setState());
+    closeBtn?.addEventListener('click', () => setState(false));
+    overlay.addEventListener('click', () => setState(false));
+
+    panel.querySelectorAll('[data-navlink]').forEach(a =>
+        a.addEventListener('click', () => setState(false))
+    );
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && open) setState(false);
+    });
+})();
+// ...existing code...
+// Ajustar padding-top según altura header si cambias h-16
+// document.documentElement.style.setProperty('--header-height', document.querySelector('header').offsetHeight + 'px');
+// ...existing code...
+// Ajusta cálculo de ancho (si antes usabas clientWidth puede fallar con -mx-6)
+(function(){
+  const track = document.getElementById('projectsTrack');
+  if(!track) return;
+  let index = 0;
+  const slides = Array.from(track.children);
+  function setWidths(){
+     slides.forEach(sl=>{
+        // ya definimos min-w con Tailwind; solo forzamos que coincida con viewport en mobile
+        if(window.innerWidth < 768){
+          sl.style.minWidth = window.innerWidth + 'px';
+        } else {
+          sl.style.minWidth = '';
+        }
+     });
+     move();
+  }
+  function move(){
+     const slideWidth = slides[0].getBoundingClientRect().width;
+     track.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+  // Si ya tienes prev/next, solo llama move(); no dupliques listeners
+  window.addEventListener('resize', setWidths);
+  setWidths();
+})();
 // ...existing code...

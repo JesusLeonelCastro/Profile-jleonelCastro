@@ -24,65 +24,95 @@
         <div class="pt-10 px-6">
 
             <!-- HEADER -->
-            <header class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
-                <br>
-                <div class="container mx-auto flex justify-between items-center px-6 py-4">
-
-                    <!-- LOGO -->
-                    <a href="#" class="text-2xl font-bold text-white">
+            <!-- HEADER -->
+            <!-- ...existing code... -->
+            <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/40 backdrop-blur-sm border-b border-gray-800">
+                <div class="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
+                    <!-- Logo -->
+                    <a href="#" class="text-xl font-bold tracking-wide">
                         <span class="text-blue-400">"</span>leonelcastro<span class="text-blue-400">"</span>
                     </a>
 
-                    <!-- NAV LINKS (desktop) -->
+                    <!-- Desktop nav -->
                     <nav class="hidden md:flex items-center space-x-8">
-                        <a href="#about" class="text-xl font-mono nav-link-animated flex items-center gap-2">
-                            <span class="text-blue-400">1.</span>
-                            <span>Acerca de mí</span>
+                        <a href="#about"
+                            class="text-sm font-mono flex items-center gap-2 hover:text-blue-400 transition">
+                            <span class="text-blue-400">1.</span><span>Acerca de mí</span>
                         </a>
-                        <a href="#tech" class="text-xl font-mono nav-link-animated">
-                            <span class="text-blue-400">2.</span> <span>Experiencia</span>
+                        <a href="#tech" class="text-sm font-mono hover:text-blue-400 transition">
+                            <span class="text-blue-400">2.</span> Experiencia
                         </a>
-                        <a href="#Proyectos" class="text-xl font-mono nav-link-animated">
-                            <span class="text-blue-400">3.</span> <span>Proyectos</span>
+                        <a href="#Proyectos" class="text-sm font-mono hover:text-blue-400 transition">
+                            <span class="text-blue-400">3.</span> Proyectos
                         </a>
-                        <a href="#contact" class="text-xl font-mono nav-link-animated">
-                            <span class="text-blue-400">4.</span> <span>Contacto</span>
+                        <a href="#contact" class="text-sm font-mono hover:text-blue-400 transition">
+                            <span class="text-blue-400">4.</span> Contacto
                         </a>
-                        <!-- BOTÓN -->
                         <button class="Btn backdrop-blur-sm">
-                            <span class="svgContainer">
-                                <svg fill="white" viewBox="0 0 496 512" height="1.6em">
-                                    <path
-                                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
-                                    </path>
-                                </svg>
-                            </span>
+                            <span class="svgContainer"><!-- ...existing code... --></span>
                             <span class="BG"></span>
                         </button>
                     </nav>
 
+                    <!-- Botón móvil -->
+                    <button id="menuToggle"
+                        class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-[6px] rounded-lg border border-gray-700 bg-gray-800/60 hover:bg-gray-800 transition"
+                        aria-label="Abrir menú" aria-expanded="false">
+                        <span class="w-6 h-0.5 bg-blue-400 transition-all"></span>
+                        <span class="w-6 h-0.5 bg-blue-400 transition-all"></span>
+                        <span class="w-6 h-0.5 bg-blue-400 transition-all"></span>
+                    </button>
                 </div>
-
-
             </header>
 
+            <!-- OVERLAY (fuera del header) -->
+            <div id="menuOverlay"
+                class="fixed inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 pointer-events-none transition-opacity duration-300 z-[58]">
+            </div>
 
+            <!-- PANEL MÓVIL (fuera del header, antes del resto del contenido) -->
+            <div id="mobileNav"
+                class="md:hidden fixed top-0 right-0 bottom-0 w-64 bg-gray-900/95 backdrop-blur-xl border-l border-gray-800 translate-x-full transition-transform duration-300 z-[60] flex flex-col">
+                <div class="h-16 px-5 flex items-center justify-between border-b border-gray-800 backdrop-blur-xl">
+                    <span class="font-mono text-blue-400 text-sm">Menú</span>
+                    <button id="menuClose"
+                        class="w-9 h-9 flex items-center justify-center rounded-md border border-gray-700 hover:border-blue-400 hover:text-blue-400 transition"
+                        aria-label="Cerrar menú">✕</button>
+                </div>
+                <nav class="flex-1 px-5 py-6 space-y-5 font-mono text-sm overflow-y-auto no-scrollbar">
+                    <a href="#about" class="block hover:text-blue-400" data-navlink>1. Acerca de mí</a>
+                    <a href="#tech" class="block hover:text-blue-400" data-navlink>2. Experiencia</a>
+                    <a href="#Proyectos" class="block hover:text-blue-400" data-navlink>3. Proyectos</a>
+                    <a href="#contact" class="block hover:text-blue-400" data-navlink>4. Contacto</a>
+                </nav>
+                <div class="p-5 border-t border-gray-800">
+                    <a href="https://github.com/JesusLeonelCastro" target="_blank" rel="noopener noreferrer"
+                        class="block text-center w-full px-4 py-2 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 transition text-xs tracking-wide">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <!-- ...existing code... -->
 
-            <!-- HERO (Presentación inicial) -->
-            <section class="container mx-auto px-6 py-32 min-h-screen flex flex-col ">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-left">
-                    <br><br><br><br><br><br><br>
-                    <h1 class=" text-3xl font-mono text-blue-400">Hola, mi nombre es Jesus Leonel</h1>
-                    <br>
-                    <p class="text-left text-2xl ">Desarrollador .NET con mas de 3 años de experiencia</p>
-                    <p class="text-left text-2xl ">con desarrollo de sistemas webs con buenas practicas</p>
-                    <p class="text-left text-2xl ">codigo limpio y escalable.</p>
-
-                    <div class="mt-8">
-                        <br><br><br><br>
+            <!-- HERO -->
+            <section class="container mx-auto mx-auto px-6 pt-32 pb-28 min-h-screen flex flex-col justify-center">
+                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm">
+                    <h1 class="text-3xl md:text-4xl font-mono text-blue-400">Hola, mi nombre es Jesus Leonel</h1>
+                    <p class="mt-6 text-xl md:text-2xl leading-snug">
+                        Desarrollador .NET con más de 3 años de experiencia construyendo sistemas web
+                        escalables, con buenas prácticas y código limpio.
+                    </p>
+                    <div class="mt-10">
+                        <a href="#Proyectos"
+                            class="inline-block px-6 py-2 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition">
+                            Ver proyectos
+                        </a>
                     </div>
                 </div>
             </section>
+
+
+
 
             <!-- ABOUT -->
             <section id="about" class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center ">
@@ -224,14 +254,16 @@
             <!-- PROYECTOS -->
             <section id="Proyectos" class="container mx-auto px-6 py-32 min-h-screen">
                 <div class="bg-blue/10 p-8 rounded-lg backdrop-blur-sm">
-                    <h2 class="text-4xl font-bold mb-2 text-blue-400">Proyectos</h2>
-                    <p class="text-lg text-gray-300 mb-10">Algunos trabajos y desarrollos personales.</p>
+                    <h2 class="text-4xl font-bold mb-2 text-blue-400">3. Proyectos</h2>
+                    <p class="text-lg text-gray-300 mb-10">En mi estadia en la universidad he desarrollado sistemas de
+                        automatización tanto personales como para pequeños negocios que querían automatizar sus
+                        procesos.</p>
 
                     <div class="relative select-none" id="projects-carousel">
                         <!-- Track -->
-                        <div id="projectsTrack" class="flex transition-transform duration-500 ease-out">
+                        <div id="projectsTrack" class="flex transition-transform duration-500 ease-out -mx-6 md:mx-0">
                             <!-- Slide 1 -->
-                            <div class="min-w-full px-2 ">
+                            <div class="px-0 md:px-2 min-w-[100vw] md:min-w-full mx-3 ">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
@@ -309,11 +341,13 @@
                                             Sistema de gestión de ventas de comida rápida - JOES GRILLS
                                         </h3>
                                         <br>
-                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"> <span class="font-semibold text-blue-300">Administrador</span>
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"> <span
+                                                class="font-semibold text-blue-300">Administrador</span>
                                             - Gráficos Estadísticos - Gestión Categorías - Gestión Platos - Gestión
                                             Mesas - Gestión Salsas - Historial Ventas - Reportes - Tickets Internos.
                                         </p>
-                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"> <span class="font-semibold text-blue-300">Empleado</span>
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"> <span
+                                                class="font-semibold text-blue-300">Empleado</span>
                                             - Tomar pedido - Pedidos Activos - Tickets Internos.
                                         </p>
                                         <br>
@@ -337,8 +371,9 @@
                                     </div>
                                 </article>
                             </div>
+                            
                             <!-- Slide 2 (REEMPLAZADO CON GALERÍA) -->
-                            <div class="min-w-full px-2">
+                            <div class="px-0 md:px-2 min-w-[100vw] md:min-w-full mx-3">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
@@ -346,57 +381,100 @@
                                     <div class="basis-1/2" data-gallery>
                                         <div
                                             class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
-                                            <img data-gallery-main src="asset/proyectos/fastfood/fast1.png"
+                                            <img data-gallery-main src="asset/proyectos/mdp/muni1.png"
                                                 alt="Ventas Fast Food"
                                                 class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
                                         </div>
                                         <div class="mt-3 flex gap-2 overflow-x-auto pb-1" data-gallery-thumbs>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/fastfood/fast1.png">
-                                                <img src="asset/proyectos/fastfood/fast1.png"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe1.png">
+                                                <img src="asset/proyectos/mdp/muni1.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/fastfood/fast2.png">
-                                                <img src="asset/proyectos/fastfood/fast2.png"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/joe/joe1.png">
+                                                <img src="asset/proyectos/mdp/muni2.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/fastfood/fast3.png">
-                                                <img src="asset/proyectos/fastfood/fast3.png"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/mdp/muni3.png">
+                                                <img src="asset/proyectos/mdp/muni3.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/mdp/muni4.png">
+                                                <img src="asset/proyectos/mdp/muni4.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/mdp/muni9.png">
+                                                <img src="asset/proyectos/mdp/muni9.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/mdp/muni6.png">
+                                                <img src="asset/proyectos/mdp/muni6.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/mdp/muni8.png">
+                                                <img src="asset/proyectos/mdp/muni8.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/mdp/muni5.png">
+                                                <img src="asset/proyectos/mdp/muni5.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/mdp/muni7.png">
+                                                <img src="asset/proyectos/mdp/muni7.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                            
                                         </div>
                                     </div>
 
                                     <!-- TEXTO -->
                                     <div class="basis-1/2 flex flex-col">
                                         <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
-                                            Ventas Fast Food</h3>
-                                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                                            Módulos de pedidos, boletas, control de insumos y dashboard de métricas.
+                                            Sistema gestion de Informes tecnicos y Inventario TI</h3>
+                                            <br>
+
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"><span
+                                                class="font-semibold text-blue-300">Administrador</span>
+                                            - Graficos estadisticos - Gestión Usuarios - Gestión Areas - Gestión Sedes - Gestión Tipos equipos - Gestión Estados - Gestión Fallas reportadas - Gestión Informes técnicos - Gestión Inventario - Reportes PDF.
                                         </p>
+                                        <br>
                                         <p class="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías
                                         </p>
                                         <ul class="flex flex-wrap gap-2 text-[11px] font-mono mb-6">
                                             <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">C#</li>
-                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">EF Core</li>
-                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">SQL</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Asp .Net Core</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Boostrap</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Linq</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">SQLserver</li>
                                         </ul>
                                         <div class="mt-auto flex gap-4 text-sm">
-                                            <a href="#" class="text-gray-400 hover:text-blue-400" target="_blank"
+                                            <a href="https://github.com/JesusLeonelCastro/Sistema_Tramite_Documentarios_Informes_Tecnicos.git" class="text-gray-400 hover:text-blue-400" target="_blank"
                                                 rel="noopener noreferrer">GitHub</a>
-                                            <a href="#" class="text-gray-400 hover:text-blue-400" target="_blank"
+                                            <a href="http://www.alemarticastro.somee.com/Autentication/Login" class="text-gray-400 hover:text-blue-400" target="_blank"
                                                 rel="noopener noreferrer">Demo</a>
                                         </div>
                                     </div>
                                 </article>
                             </div>
                             <!-- Slide 3 (REEMPLAZADO CON GALERÍA) -->
-                            <div class="min-w-full px-2">
+                            <div class="px-0 md:px-2 min-w-[100vw] md:min-w-full mx-3">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
@@ -450,7 +528,7 @@
                                 </article>
                             </div>
                             <!-- Slide 4 (REEMPLAZADO CON GALERÍA) -->
-                            <div class="min-w-full px-2">
+                            <div class="px-0 md:px-2 min-w-[100vw] md:min-w-full mx-3">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
