@@ -92,3 +92,12 @@ body {
         }
 
 
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+/* Asegura no recortar imágenes principales de la galería */
+[data-gallery-main] { object-fit: contain; }
+
+.thumbs-scroll { scrollbar-width: thin; scrollbar-color: #60a5fa #1f2937; }
+.thumbs-scroll::-webkit-scrollbar { height: 8px; }
+.thumbs-scroll::-webkit-scrollbar-track { background: #1f2937; border-radius: 8px; }
+.thumbs-scroll::-webkit-scrollbar-thumb { background: #60a5fa; border-radius: 8px; }

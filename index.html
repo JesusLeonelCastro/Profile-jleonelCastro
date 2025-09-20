@@ -8,22 +8,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/button.css">
-
-    <script src="/js/main.js"></script>
-    <a class="dribbble" href="https://dribbble.com/shots/9733513-Playful-button-hovers" target="_blank">
-        <img src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg"
-            alt="">
-    </a>
 </head>
 
-<body class="bg-gray-950 text-white">
+<body class="bg-gray-950 text-white overflow-x-hidden">
 
     <div id="particles-js"></div>
 
     <div class="content">
         <div class="pt-10 px-6">
 
-            <!-- HEADER -->
             <!-- HEADER -->
             <!-- ...existing code... -->
             <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/40 backdrop-blur-sm border-b border-gray-800">
@@ -263,12 +256,12 @@
                         <!-- Track -->
                         <div id="projectsTrack" class="flex transition-transform duration-500 ease-out -mx-6 md:mx-0">
                             <!-- Slide 1 -->
-                            <div class="px-0 md:px-2 min-w-[100vw] md:min-w-full mx-3 ">
+                            <div class="basis-full shrink-0 px-3 md:px-2">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
                                     <!-- GALERÍA (principal + miniaturas) -->
-                                    <div class="basis-1/2 " data-gallery>
+                                    <div class="basis-full md:basis-1/2 min-w-0" data-gallery>
                                         <!-- Imagen principal -->
                                         <div
                                             class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
@@ -277,7 +270,7 @@
                                         </div>
 
                                         <!-- Thumbnails -->
-                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1" data-gallery-thumbs>
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap" data-gallery-thumbs>
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/joe/joe1.png">
@@ -336,7 +329,7 @@
                                     </div>
 
                                     <!-- Texto -->
-                                    <div class="basis-1/2 flex flex-col">
+                                    <div class="basis-full md:basis-1/2 min-w-0 flex flex-col">
                                         <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
                                             Sistema de gestión de ventas de comida rápida - JOES GRILLS
                                         </h3>
@@ -371,21 +364,20 @@
                                     </div>
                                 </article>
                             </div>
-
                             <!-- Slide 2 (REEMPLAZADO CON GALERÍA) -->
-                            <div class="px-0 md:px-2 min-w-[100vw] md:min-w-full mx-3">
+                            <div class="basis-full shrink-0 px-3 md:px-2">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
                                     <!-- GALERÍA -->
-                                    <div class="basis-1/2" data-gallery>
+                                    <div class="basis-full md:basis-1/2 min-w-0" data-gallery>
                                         <div
                                             class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
                                             <img data-gallery-main src="asset/proyectos/mdp/muni1.png"
                                                 alt="Ventas Fast Food"
                                                 class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
                                         </div>
-                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1" data-gallery-thumbs>
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap" data-gallery-thumbs>
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/mdp/muni1.png">
@@ -445,7 +437,7 @@
                                     </div>
 
                                     <!-- TEXTO -->
-                                    <div class="basis-1/2 flex flex-col">
+                                    <div class="basis-full md:basis-1/2 min-w-0 flex flex-col">
                                         <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
                                             Sistema gestion de Informes tecnicos y Inventario TI</h3>
                                         <br>
@@ -479,47 +471,48 @@
                                 </article>
                             </div>
                             <!-- Slide 3 (REEMPLAZADO CON GALERÍA) -->
-                            <div class="px-0 md:px-2 min-w-[100vw] md:min-w-full mx-3">
+                            <div class="basis-full shrink-0 px-3 md:px-2">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
-                                    <div class="basis-1/2" data-gallery>
+                                    <div class="basis-full md:basis-1/2 min-w-0" data-gallery>
                                         <div
                                             class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
                                             <img data-gallery-main src="asset/proyectos/beca18/beca181.png"
                                                 alt="Landing Beca18"
                                                 class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
                                         </div>
-                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 no-scrollbar"
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap"
                                             data-gallery-thumbs>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/beca18/beca181.png">
                                                 <img src="asset/proyectos/beca18/beca181.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/beca18/beca182.png">
                                                 <img src="asset/proyectos/beca18/beca182.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/beca18/beca183.png">
                                                 <img src="asset/proyectos/beca18/beca183.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/beca18/beca184.png">
                                                 <img src="asset/proyectos/beca18/beca184.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
+                                            
                                         </div>
                                     </div>
 
-                                    <div class="basis-1/2 flex flex-col">
+                                    <div class="basis-full md:basis-1/2 min-w-0 flex flex-col">
                                         <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
                                             Landing Page - Beca18 UPT</h3>
                                         <p class="text-gray-400 text-sm leading-relaxed mb-4">
@@ -540,65 +533,122 @@
                                             <a href="https://github.com/JesusLeonelCastro/Lading-Page_Beca18-UPT.git"
                                                 class="text-gray-400 hover:text-blue-400" target="_blank"
                                                 rel="noopener noreferrer">GitHub</a>
+                                            <a href="https://whitesmoke-goshawk-853733.hostingersite.com/"
+                                                class="text-gray-400 hover:text-blue-400" target="_blank"
+                                                rel="noopener noreferrer">Demo</a>
                                         </div>
                                     </div>
                                 </article>
                             </div>
                             <!-- Slide 4 (REEMPLAZADO CON GALERÍA) -->
-                            <div class="px-0 md:px-2 min-w-[100vw] md:min-w-full mx-3">
+                             <div class="basis-full shrink-0 px-3 md:px-2">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
-                                    <div class="basis-1/2" data-gallery>
+                                    <!-- GALERÍA (principal + miniaturas) -->
+                                    <div class="basis-full md:basis-1/2 min-w-0" data-gallery>
+                                        <!-- Imagen principal -->
                                         <div
                                             class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
-                                            <img data-gallery-main src="asset/proyectos/automation/auto1.png"
-                                                alt="Automatización"
-                                                class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
+                                            <img data-gallery-main src="asset/proyectos/sja/san1.png" alt="JOES GRILLS"
+                                                class="w-full h-full object-cover transition-opacity duration-300 pointer-events-none select-none">
                                         </div>
-                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1" data-gallery-thumbs>
+
+                                        <!-- Thumbnails -->
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap" data-gallery-thumbs>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/automation/auto1.png">
-                                                <img src="asset/proyectos/automation/auto1.png"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san1.png">
+                                                <img src="asset/proyectos/sja/san1.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/automation/auto2.png">
-                                                <img src="asset/proyectos/automation/auto2.png"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san9.png">
+                                                <img src="asset/proyectos/sja/san9.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
-                                                class="w-20 h-14 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/automation/auto3.png">
-                                                <img src="asset/proyectos/automation/auto3.png"
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san10.png">
+                                                <img src="asset/proyectos/sja/san10.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san2.png">
+                                                <img src="asset/proyectos/sja/san2.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san3.png">
+                                                <img src="asset/proyectos/sja/san3.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san6.png">
+                                                <img src="asset/proyectos/sja/san6.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san8.png">
+                                                <img src="asset/proyectos/sja/san8.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san5.png">
+                                                <img src="asset/proyectos/sja/san5.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san7.png">
+                                                <img src="asset/proyectos/sja/san7.png"
+                                                    class="w-full h-full object-cover" alt="">
+                                            </button>
+                                            
+                                            <button
+                                                class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
+                                                data-src="asset/proyectos/sja/san14.png">
+                                                <img src="asset/proyectos/sja/san14.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div class="basis-1/2 flex flex-col">
+                                    <!-- Texto -->
+                                    <div class="basis-full md:basis-1/2 min-w-0 flex flex-col">
                                         <h3 class="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
-                                            Automatización Tareas</h3>
-                                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                                            Scripts y utilidades para reducir tiempos manuales y errores operativos.
+                                            Sistema de gestión de ventas de comida rápida - JOES GRILLS
+                                        </h3>
+                                        <br>
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"> <span
+                                                class="font-semibold text-blue-300">Administrador</span>
+                                            - Gráficos Estadísticos - Gestión Categorías - Gestión Platos - Gestión
+                                            Mesas - Gestión Salsas - Historial Ventas - Reportes - Tickets Internos.
                                         </p>
-                                        <p class="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías
+                                        <p class="text-gray-400 text-sm leading-relaxed mb-4"> <span
+                                                class="font-semibold text-blue-300">Empleado</span>
+                                            - Tomar pedido - Pedidos Activos - Tickets Internos.
+                                        </p>
+                                        <br>
+                                        <p class=" mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologias
                                         </p>
                                         <ul class="flex flex-wrap gap-2 text-[11px] font-mono mb-6">
-                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">PowerShell</li>
-                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Batch</li>
-                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Docs</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Vite</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">React</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Node.js</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Tailwind</li>
+                                            <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Supabase</li>
                                         </ul>
-                                        <div class="mt-auto flex gap-4 text-sm">
-                                            <a href="#" class="text-gray-400 hover:text-blue-400" target="_blank"
-                                                rel="noopener noreferrer">GitHub</a>
-                                        </div>
+                                        
                                     </div>
                                 </article>
                             </div>
-
                         </div>
 
                         <!-- Controles -->
