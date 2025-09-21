@@ -346,5 +346,75 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', setWidths);
   setWidths();
 })();
+
+
+
+// ...existing code...
+
+// Animaciones de aparición para EXPERIENCIA (y reutilizable)
+function initRevealAnimations() {
+  const els = document.querySelectorAll('[data-reveal]');
+  if (!els.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+        if (delay) el.style.transitionDelay = `${delay}ms`;
+        el.classList.add('is-visible');
+        io.unobserve(el); // una sola vez
+      }
+    });
+  }, { threshold: 0.15 });
+
+  els.forEach(el => io.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', initRevealAnimations);
+
+// ...existing code...
+
+
+function initContactTabs() {
+  const nav = document.getElementById('contactNav');
+  const panels = document.querySelectorAll('#contactPanels .contact-panel');
+  if (!nav || !panels.length) return;
+
+  const tabs = nav.querySelectorAll('.contact-tab');
+
+  function activate(id) {
+    panels.forEach(p => p.classList.toggle('hidden', p.id !== id));
+    tabs.forEach(b => {
+      const on = b.dataset.target === id;
+      b.classList.toggle('bg-blue-400/10', on);
+      b.classList.toggle('text-blue-300', on);
+      b.classList.toggle('md:border-l-2', on);
+      b.classList.toggle('md:border-blue-400', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+
+  tabs.forEach(b => b.addEventListener('click', () => activate(b.dataset.target)));
+  activate('panel-form');
+
+  // Copiar email
+  const copyBtn = document.getElementById('copyEmail');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('jesusleonelcastro@example.com').then(() => {
+        copyBtn.textContent = 'Copiado';
+        setTimeout(() => (copyBtn.textContent = 'Copiar'), 1200);
+      });
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initContactTabs();
+});
+
+
+
 // ...existing code...
 

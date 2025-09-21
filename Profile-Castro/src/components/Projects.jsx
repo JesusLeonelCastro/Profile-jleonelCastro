@@ -1,0 +1,288 @@
+import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { toast } from '@/components/ui/use-toast';
+
+// Componente Modal independiente
+const ImageModal = ({ isOpen, imageSrc, imageAlt, projectTitle, onClose }) => {
+  if (!isOpen) return null;
+
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
+      onClick={handleBackdropClick}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-white hover:text-gray-300 z-[10000]"
+      >
+        <X size={32} />
+      </button>
+
+      <div className="max-w-[95vw] max-h-[95vh]">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          className="max-w-full max-h-full object-contain"
+        />
+      </div>
+
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-4 py-2 rounded">
+        <p className="text-sm">{projectTitle}</p>
+        <p className="text-xs text-gray-300">{imageAlt}</p>
+      </div>
+    </div>
+  );
+};
+
+const ProjectGallery = ({ images, projectTitle }) => {
+  const [mainImage, setMainImage] = useState(images[0].src);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleThumbClick = (src, index) => {
+    setMainImage(src);
+    setActiveIndex(index);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <>
+      <div className="basis-full md:basis-1/2 min-w-0">
+        <div className="relative bg-gray-800/50 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2 group">
+          <img
+            src={mainImage}
+            alt={`Vista principal de ${projectTitle}`}
+            className="w-full h-full object-contain transition-all duration-300 cursor-pointer hover:scale-105"
+            onClick={openModal}
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg cursor-pointer" onClick={openModal}>
+            <ZoomIn size={32} className="text-white" />
+          </div>
+        </div>
+        <div className="mt-3 flex gap-2 overflow-x-auto pb-2 thumbs-scroll">
+          {images.map((image, index) => (
+            <button
+              key={index}
+              onClick={() => handleThumbClick(image.src, index)}
+              className={`w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 transition ${activeIndex === index ? 'ring-blue-400' : 'ring-transparent hover:ring-blue-400'}`}
+            >
+              <img src={image.src} className="w-full h-full object-cover" alt={image.alt} />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        imageSrc={mainImage}
+        imageAlt={images[activeIndex]?.alt}
+        projectTitle={projectTitle}
+        onClose={closeModal}
+      />
+    </>
+  );
+};
+
+const Projects = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const trackRef = useRef(null);
+
+
+
+
+
+  const projects = [
+    {
+      title: 'Sistema de gestión de ventas de comida rápida - JOES GRILLS',
+      roles: {
+        Administrador: 'Gráficos Estadísticos - Gestión Categorías - Gestión Platos - Gestión Mesas - Gestión Salsas - Historial Ventas - Reportes - Tickets Internos.',
+        Empleado: 'Tomar pedido - Pedidos Activos - Tickets Internos.'
+      },
+      technologies: ['Vite', 'React', 'Node.js', 'Tailwind', 'Supabase'],
+      images: [
+        { src: '/proyectos/joe/joe1.png', alt: 'Login de Joes Grills' },
+        { src: '/proyectos/joe/joe2.png', alt: 'Dashboard de Joes Grills' },
+        { src: '/proyectos/joe/joe3.png', alt: 'Gestión de platos' },
+        { src: '/proyectos/joe/joe4.png', alt: 'Toma de pedidos' },
+        { src: '/proyectos/joe/joe10.png', alt: 'Historial de ventas' },
+        { src: '/proyectos/joe/joe8.png', alt: 'Reportes del sistema' },
+        { src: '/proyectos/joe/joe4.png', alt: 'Reportes del sistema' },
+        { src: '/proyectos/joe/joe9.png', alt: 'Reportes del sistema' },
+        { src: '/proyectos/joe/joe7.png', alt: 'Reportes del sistema' },
+      ],
+      github: 'https://github.com/JesusLeonelCastro/Sistema-Gestion-Snack_Joe.git',
+      demo: 'https://lavender-crane-734833.hostingersite.com/login'
+    },
+    {
+      title: 'Sistema gestión de Informes técnicos y Inventario TI',
+      roles: {
+        Administrador: 'Gráficos estadísticos - Gestión Usuarios - Gestión Áreas - Gestión Sedes - Gestión Tipos equipos - Gestión Estados - Gestión Fallas reportadas - Gestión Informes técnicos - Gestión Inventario - Reportes PDF.',
+        Soporte: 'Crear informes, ver inventario asignado.'
+      },
+      technologies: ['C#', '.NET Core', 'Bootstrap', 'LINQ', 'SQL Server'],
+      images: [
+        { src: '/proyectos/mdp/muni1.png', alt: 'Dashboard de sistema de TI' },
+        { src: '/proyectos/mdp/muni2.png', alt: 'Gestión de inventario de TI' },
+        { src: '/proyectos/mdp/muni3.png', alt: 'Creación de informe técnico' },
+        { src: '/proyectos/mdp/muni4.png', alt: 'Reportes en PDF' },
+        { src: '/proyectos/mdp/muni5.png', alt: 'Gestión de usuarios del sistema' },
+      ],
+      github: 'https://github.com/JesusLeonelCastro/Sistema_Tramite_Documentarios_Informes_Tecnicos.git',
+      demo: 'http://www.alemarticastro.somee.com/Autentication/Login'
+    },
+
+    {
+      title: 'Landing Page - Beca18 UPT',
+      roles: {
+        Detalles: 'Página informativa enfocada en el almacenmamiento y centrelizacion de fotografias y revistas institucionales, con un diseño responsive y optimizada.',
+
+      },
+      technologies: ['C#', '.NET Core', 'Bootstrap', 'LINQ', 'SQL Server'],
+      images: [
+        { src: '/proyectos/beca18/Beca181.png', alt: 'Dashboard de sistema de TI' },
+        { src: '/proyectos/beca18/Beca182.png', alt: 'Gestión de inventario de TI' },
+        { src: '/proyectos/beca18/Beca183.png', alt: 'Creación de informe técnico' },
+        { src: '/proyectos/beca18/Beca184.png', alt: 'Reportes en PDF' },
+      ],
+      github: 'https://github.com/JesusLeonelCastro/Lading-Page_Beca18-UPT.git',
+      demo: 'https://whitesmoke-goshawk-853733.hostingersite.com/'
+    },
+    {
+      title: 'Sistema de gestion integrado - SAN JOSE',
+      roles: {
+        Administrador: 'Gráficos Estadísticos - Gestión Categorías - Gestión Platos - Gestión Mesas - Gestión Salsas - Historial Ventas - Reportes - Tickets Internos.',
+        Empleado: 'Tomar pedido - Pedidos Activos - Tickets Internos.'
+      },
+      technologies: ['Vite', 'React', 'Node.js', 'Tailwind', 'Supabase'],
+      images: [
+        { src: '/proyectos/sja/san1.png', alt: 'Login de SAN JOSE' },
+        { src: '/proyectos/sja/san9.png', alt: 'Dashboard de SAN JOSE' },
+        { src: '/proyectos/sja/san10.png', alt: 'Gestión de platos' },
+        { src: '/proyectos/sja/san2.png', alt: 'Toma de pedidos' },
+        { src: '/proyectos/sja/san3.png', alt: 'Historial de ventas' },
+        { src: '/proyectos/sja/san6.png', alt: 'Reportes del sistema' },
+        { src: '/proyectos/sja/san8.png', alt: 'Reportes del sistema' },
+        { src: '/proyectos/sja/san5.png', alt: 'Reportes del sistema' },
+        { src: '/proyectos/sja/san7.png', alt: 'Reportes del sistema' },
+        { src: '/proyectos/sja/san14.png', alt: 'Reportes del sistema' },
+
+      ],
+      github: 'https://github.com/JesusLeonelCastro/Sistema-Gestion-Snack_Joe.git',
+      demo: 'https://lavender-crane-734833.hostingersite.com/login'
+    },
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
+
+  const CustomArrow = ({ direction, onClick }) => (
+    <button
+      onClick={onClick}
+      className={`absolute top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors ${direction === 'left' ? '-left-4 md:-left-10' : '-right-4 md:-right-10'}`}
+    >
+      {direction === 'left' ? <ChevronLeft size={24} /> : <ChevronRight size={24} />}
+    </button>
+  );
+
+  return (
+    <section id="projects" className="section-padding">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="flex items-center gap-6 mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              <span className="gradient-text">03. Proyectos</span>
+            </h2>
+            <div className="flex-1 h-px bg-gray-800"></div>
+          </div>
+
+          <p className="text-gray-300 text-lg mb-12 max-w-3xl">
+            En mi estadía en la universidad he desarrollado sistemas de automatización tanto personales como para pequeños negocios que querían automatizar sus procesos.
+          </p>
+
+          <div className="relative">
+            <div className="overflow-hidden">
+              <div
+                ref={trackRef}
+                className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {projects.map((project, index) => (
+                  <div key={index} className="w-full flex-shrink-0 px-2">
+                    <article className="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
+                      <ProjectGallery images={project.images} projectTitle={project.title} />
+                      <div className="basis-full md:basis-1/2 min-w-0 flex flex-col">
+                        <h3 className="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
+                          {project.title}
+                        </h3>
+                        <div className="space-y-3 mb-4 text-sm">
+                          {Object.entries(project.roles).map(([role, desc]) => (
+                            <p key={role} className="text-gray-400 leading-relaxed">
+                              <span className="font-semibold text-blue-300">{role}</span> - {desc}
+                            </p>
+                          ))}
+                        </div>
+                        <p className="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías</p>
+                        <ul className="flex flex-wrap gap-2 text-xs font-mono mb-6">
+                          {project.technologies.map((tech) => (
+                            <li key={tech} className="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">{tech}</li>
+                          ))}
+                        </ul>
+                        <div className="mt-auto flex gap-4 text-sm">
+                          <button onClick={() => handleGithubClick(project.github)} className="text-gray-400 hover:text-blue-400">GitHub</button>
+                          <button onClick={() => handleDemoClick(project.demo)} className="text-gray-400 hover:text-blue-400">Demo</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <CustomArrow direction="left" onClick={prevSlide} />
+            <CustomArrow direction="right" onClick={nextSlide} />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <Button
+              onClick={() => handleGithubClick('https://github.com/JesusLeonelCastro')}
+              className="inline-block px-6 py-2 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition"
+            >
+              Ver más en GitHub
+            </Button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;

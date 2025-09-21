@@ -2,30 +2,42 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jleonelcastro</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                container: { center: true, padding: '1.5rem', screens: { '2xl': '1200px' } },
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular']
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/button.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-gray-950 text-white overflow-x-hidden">
 
     <div id="particles-js"></div>
-
     <div class="content">
         <div class="pt-10 px-6">
 
             <!-- HEADER -->
-            <!-- ...existing code... -->
             <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/40 backdrop-blur-sm border-b border-gray-800">
                 <div class="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
                     <!-- Logo -->
                     <a href="#" class="text-xl font-bold tracking-wide">
-                        <span class="text-blue-400">"</span>leonelcastro<span class="text-blue-400">"</span>
+                        <span class="text-blue-400">"</span>leonelCastro<span class="text-blue-400">"</span>
                     </a>
-
                     <!-- Desktop nav -->
                     <nav class="hidden md:flex items-center space-x-8">
                         <a href="#about"
@@ -42,12 +54,10 @@
                             <span class="text-blue-400">4.</span> Contacto
                         </a>
                         <button class="Btn backdrop-blur-sm">
-                            <span class="svgContainer"><!-- ...existing code... --></span>
+                            <span class="svgContainer"></span>
                             <span class="BG"></span>
                         </button>
                     </nav>
-
-                    <!-- Botón móvil -->
                     <button id="menuToggle"
                         class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-[6px] rounded-lg border border-gray-700 bg-gray-800/60 hover:bg-gray-800 transition"
                         aria-label="Abrir menú" aria-expanded="false">
@@ -58,12 +68,9 @@
                 </div>
             </header>
 
-            <!-- OVERLAY (fuera del header) -->
             <div id="menuOverlay"
                 class="fixed inset-0 bg-black/40 backdrop-blur-[1px] opacity-0 pointer-events-none transition-opacity duration-300 z-[58]">
             </div>
-
-            <!-- PANEL MÓVIL (fuera del header, antes del resto del contenido) -->
             <div id="mobileNav"
                 class="md:hidden fixed top-0 right-0 bottom-0 w-64 bg-gray-900/95 backdrop-blur-xl border-l border-gray-800 translate-x-full transition-transform duration-300 z-[60] flex flex-col">
                 <div class="h-16 px-5 flex items-center justify-between border-b border-gray-800 backdrop-blur-xl">
@@ -85,21 +92,41 @@
                     </a>
                 </div>
             </div>
-            <!-- ...existing code... -->
 
-            <!-- HERO -->
-            <section class="container mx-auto mx-auto px-6 pt-32 pb-28 min-h-screen flex flex-col justify-center">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm">
-                    <h1 class="text-3xl md:text-4xl font-mono text-blue-400">Hola, mi nombre es Jesus Leonel</h1>
-                    <p class="mt-6 text-xl md:text-2xl leading-snug">
-                        Desarrollador .NET con más de 3 años de experiencia construyendo sistemas web
-                        escalables, con buenas prácticas y código limpio.
+
+            <!-- HERO  -->
+            <section id="hero" class="container mx-auto px-6 pt-28 md:pt-36 pb-24 min-h-[70vh]">
+                <div class="relative overflow-hidden rounded-xl border border-gray-800 bg-gray-900/30 p-8 md:p-12">
+                    <!-- Glow sutil de fondo -->
+                    <div
+                        class="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl">
+                    </div>
+                    <div
+                        class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl">
+                    </div>
+
+                    <p class="font-mono text-blue-400 text-sm md:text-[13px] tracking-wider">Hola, soy</p>
+
+                    <h1 class="mt-2 font-sans font-extrabold tracking-tight text-4xl md:text-6xl leading-[1.1]">
+                        <span class="text-white">Jesús Leonel Castro</span>
+                    </h1>
+
+                    <p class="mt-5 md:mt-6 text-base md:text-xl text-gray-300 max-w-3xl leading-relaxed">
+                        Desarrollador .NET con más de 3 años de experiencia construyendo sistemas web escalables,
+                        con buenas prácticas y código limpio.
                     </p>
-                    <div class="mt-10">
+
+                    <div class="mt-8 md:mt-10 flex items-center gap-3">
                         <a href="#Proyectos"
-                            class="inline-block px-6 py-2 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition">
+                            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition">
                             Ver proyectos
                         </a>
+                        <!-- Opcional: segundo botón
+      <a href="TU_CV.pdf" target="_blank"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-gray-700 text-gray-300 hover:bg-gray-800 font-mono text-sm transition">
+        Descargar CV
+      </a>
+      -->
                     </div>
                 </div>
             </section>
@@ -108,128 +135,149 @@
 
 
             <!-- ABOUT -->
-            <section id="about" class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center ">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-left">
-                    <br><br><br><br><br><br><br>
-                    <h2 class="text-4xl font-bold mb-4 text-blue-400 text-left">Acerca de mí</h2>
+            <section id="about" class="container mx-auto px-6 py-32">
+                <div class="relative overflow-hidden rounded-xl border border-gray-800 bg-gray-900/30 p-8 md:p-12">
+                    <!-- glows sutiles -->
+                    <div
+                        class="pointer-events-none absolute -top-24 -left-24 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl">
+                    </div>
+                    <div
+                        class="pointer-events-none absolute -bottom-24 -right-24 h-56 w-56 rounded-full bg-cyan-400/10 blur-3xl">
+                    </div>
 
-                    <p class="text-lg leading-relaxed text-left">
-                        Soy Bachiller en Ingeniería de Sistemas con experiencia en proyectos desarrollados en
-                        <span class="text-blue-400 font-semibold">.NET , VITE + REACT , JAVA NETBEANS </span>
-                        y aplicaciones de entorno de escritoio en Java Me caracterizo por ser <span
-                            class="text-blue-400 font-semibold">autodidacta</span>, con rápida
-                        capacidad de adaptación al trabajo en equipo y con una pasión especial por la
-                        <span class="text-blue-400 font-semibold">automatización de procesos</span>.
-                        En mis tiempos libres disfruto experimentar con nuevas tecnologías y crear soluciones que
-                        optimicen tareas.
-                    </p>
-                </div>
-            </section>
+                    <div class="max-w-4xl">
 
-            <!-- EXPERIENCIA -->
-            <section id="tech" class="container mx-auto px-6 py-32 min-h-[80vh]">
-                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-lg text-left">
-
-                    <!-- Título -->
-                    <h2 class="text-4xl font-bold mb-12 text-blue-400">02. Experiencia</h2>
-                    <br><br><br><br>
-
-                    <!-- Contenido -->
-                    <div class="flex justify-left">
-
-                        <!-- Sidebar de empresas -->
-                        <div class="w-1/4 border-l-2 border-gray-700 pl-4 space-y-4">
-                            <button onclick="showExp('freelance')"
-                                class="block text-left px-2 py-1 text-gray-400 hover:text-blue-300" id="btn-freelance">
-                                Freelancer
-                            </button>
-                            <button onclick="showExp('otro')"
-                                class="block text-left px-2 py-1 text-gray-400 hover:text-blue-300" id="btn-otro">
-                                Universidad
-                            </button>
-                            <button onclick="showExp('muni')"
-                                class="block text-left px-2 py-1 text-blue-400 font-semibold hover:text-blue-300"
-                                id="btn-muni">
-                                Municipalidad
-                            </button>
-                            <button onclick="showExp('edu')"
-                                class="block text-left px-2 py-1 text-gray-400 hover:text-blue-300" id="btn-edu">
-                                Educación
-                            </button>
+                        <div class="flex items-center gap-6 mb-10">
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-blue-400" data-reveal>1. Acerca de mí
+                            </h2>
+                            <div class="flex-1 h-px bg-gray-800"></div>
                         </div>
 
-                        <!-- Contenido dinámico -->
-                        <div class="w-3/4 pl-8 text-2xl" id="exp-content">
+                        <div class="mt-3 h-0.5 w-20 bg-blue-500/60 rounded"></div>
 
-                            <!-- Municipalidad (visible por defecto) -->
-                            <div id="exp-muni" class="exp-item">
-                                <h3 class="text-2xl font-bold text-white">BACK-END DEVELOPER |
-                                    <span class="text-blue-400">MUNICIPALIDAD</span>
-                                </h3>
-                                <p class="text-gray-400 mb-4">Junio 2024 — Octubre 2024</p><br>
-                                <ul class="list-disc list-inside space-y-2 text-gray-300">
-                                    <li>Apoyo en el área de infraestructura tecnológica.</li>
-                                    <li>Desarrollo de sistema de Informes Técnicos con
-                                        <span class="text-blue-400">ASP.NET</span> y
-                                        <span class="text-blue-400">SQL Server</span>.
-                                    </li>
-                                    <li>Desarrollo de pequeños módulos internos.</li>
-                                    <li>Documentación de procesos y mejoras.</li>
-                                    <li>Soporte en la automatización de tareas administrativas.</li>
-                                </ul>
-                            </div>
+                        <p class="mt-6 text-lg md:text-xl leading-relaxed text-gray-300">
+                            Bachiller en Ingeniería de Sistemas. Desarrollo aplicaciones web con
+                            <span class="text-blue-300 font-semibold">.NET</span>,
+                            <span class="text-blue-300 font-semibold">Vite + React</span> y
+                            <span class="text-blue-300 font-semibold">Java (NetBeans)</span>.
+                            Me considero <span class="text-blue-300 font-semibold">autodidacta</span>, con rápida
+                            adaptación al trabajo en equipo y especial interés en la
+                            <span class="text-blue-300 font-semibold">automatización de procesos</span>.
+                        </p>
 
-                            <!-- Freelancer -->
-                            <div id="exp-freelance" class="exp-item hidden">
-                                <h3 class="text-2xl font-bold text-white">FULLSTACK WEB DEVELOPER |
-                                    <span class="text-blue-400">FREELANCER</span>
-                                </h3>
-                                <p class="text-gray-400 mb-4">Febrero 2025 — Actualidad</p><br>
-                                <ul class="list-disc list-inside space-y-2 text-gray-300">
-                                    <li>Rediseño de landing pages.</li>
-                                    <li>Desarrollo de un sistema de gestión de inventario - SAN JOSE.</li>
-                                    <li>Desarrollo de un sistema de gestión de ventas de comida rápida - JOES GRILLS.
-                                    </li>
-                                </ul>
-                            </div>
+                        <p class="mt-4 text-base md:text-lg leading-relaxed text-gray-400">
+                            Disfruto explorar nuevas tecnologías y convertir ideas en soluciones simples, útiles y
+                            mantenibles.
+                        </p>
 
-                            <!-- Universidad -->
-                            <div id="exp-otro" class="exp-item hidden">
-                                <h3 class="text-2xl font-bold text-white">FRONT-END DEVELOPER |
-                                    <span class="text-blue-400">UNIVERSIDAD</span>
-                                </h3>
-                                <p class="text-gray-400 mb-4">Octubre 2024 — Enero 2025</p><br>
-                                <ul class="list-disc list-inside space-y-2 text-gray-300">
-                                    <li>Soporte de TI en el área de Beca18 - UPT.</li>
-                                    <li>Desarrollo de Landing Page de Beca18 con
-                                        <span class="text-blue-400">HTML</span> y
-                                        <span class="text-blue-400">CSS</span>.
-                                    </li>
-                                    <li>Análisis de procesos de automatización.</li>
-                                </ul>
-                            </div>
-
-                            <!-- Educación -->
-                            <div id="exp-edu" class="exp-item hidden">
-                                <h3 class="text-2xl font-bold text-white">ESTUDIANTE |
-                                    <span class="text-blue-400">UNIVERSIDAD</span>
-                                </h3>
-                                <p class="text-gray-400 mb-4">Octubre 2024 — Enero 2025</p><br>
-                                <ul class="list-disc list-inside space-y-2 text-gray-300">
-                                    <li>Trabajos prácticos con sistemas de escritorio y webs.</li>
-                                    <li>Desarrollo de sistema de escritorio con NetBeans.</li>
-                                    <li>Aprendizaje en Azure y AWS.</li>
-                                    <li>Desarrollos con C# ASP.NET.</li>
-                                </ul>
-
-
-                            </div>
-
-                        </div>
+                        <ul class="mt-6 flex flex-wrap gap-2 text-[12px] md:text-[13px] font-mono">
+                            <li class="px-2 py-1 rounded border border-blue-400/20 bg-blue-500/10 text-blue-300">C# ·
+                                ASP.NET Core</li>
+                            <li class="px-2 py-1 rounded border border-blue-400/20 bg-blue-500/10 text-blue-300">React ·
+                                Vite · Tailwind</li>
+                            <li class="px-2 py-1 rounded border border-blue-400/20 bg-blue-500/10 text-blue-300">SQL
+                                Server · EF Core</li>
+                            <li class="px-2 py-1 rounded border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                                Automatización</li>
+                        </ul>
                     </div>
                 </div>
             </section>
+            <section id="tech" class="container mx-auto px-6 py-32">
+                <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-left">
+                    <div class="flex items-center gap-6 mb-10">
+                        <h3 class="text-4xl md:text-5xl font-extrabold text-blue-400" data-reveal>02. Experiencia</h3>
+                        <div class="flex-1 h-px bg-gray-800"></div>
+                    </div>
+                    <br>
 
+                    <ol class="relative pl-6 border-l border-gray-800/70 space-y-10">
+                        <!-- Municipalidad -->
+                        <li class="relative">
+                            <span
+                                class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gray-900 border border-blue-400/60 ring-4 ring-blue-400/10 timeline-dot"></span>
+                            <article class="rounded-lg border border-gray-800/80 bg-gray-900/30 p-5 reveal reveal-up"
+                                data-reveal data-reveal-delay="0">
+                                <header class="flex items-start justify-between gap-4">
+                                    <div>
+                                        <h3 class="text-xl font-semibold">BACK-END DEVELOPER · <span
+                                                class="text-blue-400">Municipalidad</span></h3>
+                                        <p class="text-sm text-gray-400 mt-1">Junio 2024 — Octubre 2024</p>
+                                    </div>
+                                </header>
+                                <ul class="mt-4 list-disc list-inside text-gray-300 space-y-1 text-sm">
+                                    <li>Apoyo en infraestructura tecnológica.</li>
+                                    <li>Sistema de Informes Técnicos (ASP.NET + SQL Server).</li>
+                                    <li>Módulos internos y documentación de procesos.</li>
+                                    <li>Automatización de tareas administrativas.</li>
+                                </ul>
+                            </article>
+                        </li>
+
+                        <!-- Freelancer -->
+                        <li class="relative">
+                            <span
+                                class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gray-900 border border-blue-400/60 ring-4 ring-blue-400/10 timeline-dot"></span>
+                            <article class="rounded-lg border border-gray-800/80 bg-gray-900/30 p-5 reveal reveal-up"
+                                data-reveal data-reveal-delay="100">
+                                <header class="flex items-start justify-between gap-4">
+                                    <div>
+                                        <h3 class="text-xl font-semibold">FULLSTACK WEB DEVELOPER · <span
+                                                class="text-blue-400">Freelancer</span></h3>
+                                        <p class="text-sm text-gray-400 mt-1">Febrero 2025 — Actualidad</p>
+                                    </div>
+                                </header>
+                                <ul class="mt-4 list-disc list-inside text-gray-300 space-y-1 text-sm">
+                                    <li>Rediseño de landing pages.</li>
+                                    <li>Sistema de inventario (SAN JOSE).</li>
+                                    <li>Sistema de ventas fast food (JOES GRILLS).</li>
+                                </ul>
+                            </article>
+                        </li>
+
+                        <!-- Universidad -->
+                        <li class="relative">
+                            <span
+                                class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gray-900 border border-blue-400/60 ring-4 ring-blue-400/10 timeline-dot"></span>
+                            <article class="rounded-lg border border-gray-800/80 bg-gray-900/30 p-5 reveal reveal-up"
+                                data-reveal data-reveal-delay="200">
+                                <header class="flex items-start justify-between gap-4">
+                                    <div>
+                                        <h3 class="text-xl font-semibold">FRONT-END DEVELOPER · <span
+                                                class="text-blue-400">Universidad</span></h3>
+                                        <p class="text-sm text-gray-400 mt-1">Octubre 2024 — Enero 2025</p>
+                                    </div>
+                                </header>
+                                <ul class="mt-4 list-disc list-inside text-gray-300 space-y-1 text-sm">
+                                    <li>Soporte TI en Beca18 - UPT.</li>
+                                    <li>Landing Beca18 (HTML + CSS).</li>
+                                    <li>Análisis de procesos de automatización.</li>
+                                </ul>
+                            </article>
+                        </li>
+
+                        <!-- Educación -->
+                        <li class="relative">
+                            <span
+                                class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gray-900 border border-blue-400/60 ring-4 ring-blue-400/10 timeline-dot"></span>
+                            <article class="rounded-lg border border-gray-800/80 bg-gray-900/30 p-5 reveal reveal-up"
+                                data-reveal data-reveal-delay="300">
+                                <header class="flex items-start justify-between gap-4">
+                                    <div>
+                                        <h3 class="text-xl font-semibold">ESTUDIANTE · <span
+                                                class="text-blue-400">Universidad</span></h3>
+                                        <p class="text-sm text-gray-400 mt-1">—</p>
+                                    </div>
+                                </header>
+                                <ul class="mt-4 list-disc list-inside text-gray-300 space-y-1 text-sm">
+                                    <li>Proyectos de escritorio y web (NetBeans, C# ASP.NET).</li>
+                                    <li>Aprendizaje en Azure y AWS.</li>
+                                </ul>
+                            </article>
+                        </li>
+                    </ol>
+                </div>
+            </section>
             <script>
                 function showExp(id) {
                     document.querySelectorAll(".exp-item").forEach(el => el.classList.add("hidden"));
@@ -243,11 +291,16 @@
             </script>
 
 
+            
 
             <!-- PROYECTOS -->
             <section id="Proyectos" class="container mx-auto px-6 py-32 min-h-screen">
                 <div class="bg-blue/10 p-8 rounded-lg backdrop-blur-sm">
-                    <h2 class="text-4xl font-bold mb-2 text-blue-400">3. Proyectos</h2>
+                    <div class="flex items-center gap-6 mb-10">
+                        <h3 class="text-4xl md:text-5xl font-extrabold text-blue-400" data-reveal>03. Proyectos</h3>
+                        <div class="flex-1 h-px bg-gray-800"></div>
+                    </div>
+                    <br>
                     <p class="text-lg text-gray-300 mb-10">En mi estadia en la universidad he desarrollado sistemas de
                         automatización tanto personales como para pequeños negocios que querían automatizar sus
                         procesos.</p>
@@ -270,7 +323,8 @@
                                         </div>
 
                                         <!-- Thumbnails -->
-                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap" data-gallery-thumbs>
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap"
+                                            data-gallery-thumbs>
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/joe/joe1.png">
@@ -377,7 +431,8 @@
                                                 alt="Ventas Fast Food"
                                                 class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
                                         </div>
-                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap" data-gallery-thumbs>
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap"
+                                            data-gallery-thumbs>
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/mdp/muni1.png">
@@ -478,7 +533,7 @@
                                     <div class="basis-full md:basis-1/2 min-w-0" data-gallery>
                                         <div
                                             class="relative bg-gray-800 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
-                                            <img data-gallery-main src="asset/proyectos/beca18/beca181.png"
+                                            <img data-gallery-main src="asset/proyectos/beca18/Beca181.png"
                                                 alt="Landing Beca18"
                                                 class="max-h-[400px] w-auto object-contain transition-opacity duration-300 select-none">
                                         </div>
@@ -486,20 +541,20 @@
                                             data-gallery-thumbs>
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/beca18/beca181.png">
-                                                <img src="asset/proyectos/beca18/beca181.png"
+                                                data-src="asset/proyectos/beca18/Beca181.png">
+                                                <img src="asset/proyectos/beca18/Beca181.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/beca18/beca182.png">
-                                                <img src="asset/proyectos/beca18/beca182.png"
+                                                data-src="asset/proyectos/beca18/Beca182.png">
+                                                <img src="asset/proyectos/beca18/Beca182.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
-                                                data-src="asset/proyectos/beca18/beca183.png">
-                                                <img src="asset/proyectos/beca18/beca183.png"
+                                                data-src="asset/proyectos/beca18/Beca183.png">
+                                                <img src="asset/proyectos/beca18/Beca183.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
                                             <button
@@ -508,7 +563,7 @@
                                                 <img src="asset/proyectos/beca18/beca184.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
-                                            
+
                                         </div>
                                     </div>
 
@@ -541,7 +596,7 @@
                                 </article>
                             </div>
                             <!-- Slide 4 (REEMPLAZADO CON GALERÍA) -->
-                             <div class="basis-full shrink-0 px-3 md:px-2">
+                            <div class="basis-full shrink-0 px-3 md:px-2">
                                 <article
                                     class="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
 
@@ -555,7 +610,8 @@
                                         </div>
 
                                         <!-- Thumbnails -->
-                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap" data-gallery-thumbs>
+                                        <div class="mt-3 flex gap-2 overflow-x-auto pb-1 thumbs-scroll whitespace-nowrap"
+                                            data-gallery-thumbs>
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/sja/san1.png">
@@ -610,7 +666,7 @@
                                                 <img src="asset/proyectos/sja/san7.png"
                                                     class="w-full h-full object-cover" alt="">
                                             </button>
-                                            
+
                                             <button
                                                 class="w-20 h-14 flex-shrink-0 rounded-md overflow-hidden ring-1 ring-transparent hover:ring-blue-400 transition gallery-thumb"
                                                 data-src="asset/proyectos/sja/san14.png">
@@ -645,7 +701,7 @@
                                             <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Tailwind</li>
                                             <li class="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">Supabase</li>
                                         </ul>
-                                        
+
                                     </div>
                                 </article>
                             </div>
@@ -672,23 +728,100 @@
                         </a>
                     </div>
                 </div>
+             </section>
 
-                <!-- CONTACTO -->
-                <section id="contact"
-                    class="container mx-auto px-6 py-32 min-h-screen flex items-center justify-center">
-                    <div class="bg-blue/10 p-6 rounded-lg backdrop-blur-sm text-center max-w-2xl">
-                        <h2 class="text-4xl font-bold mb-4 text-blue-400">Contacto</h2>
-                        <p class="text-lg leading-relaxed mb-6">
-                            Si deseas trabajar conmigo o tienes alguna consulta, no dudes en escribirme.
-                        </p>
-                        <form class="space-y-4">
-                            <input type="text" placeholder="Tu nombre" class="w-full px-4 py-2 rounded-lg text-black">
-                            <input type="email" placeholder="Tu correo" class="w-full px-4 py-2 rounded-lg text-black">
-                            <textarea placeholder="Tu mensaje"
-                                class="w-full px-4 py-2 rounded-lg text-black"></textarea>
-                            <button
-                                class="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white font-semibold">Enviar</button>
-                        </form>
+                <!-- CONTACTO (reemplaza tu bloque actual) -->
+                <section id="contact" class="container mx-auto px-6 py-32">
+                    <div class="bg-blue/10 p-6 md:p-8 rounded-lg backdrop-blur-sm">
+                        <!-- Título + línea -->
+                        <div class="flex items-center gap-6 mb-10">
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-blue-400" data-reveal>04. Contacto</h2>
+                            <div class="flex-1 h-px bg-gray-800"></div>
+                        </div>
+
+                        <div class="grid md:grid-cols-4 gap-8">
+                            <!-- NAV LATERAL -->
+                            <aside class="md:col-span-1">
+                                <ul id="contactNav"
+                                    class="md:border-l md:border-gray-800/70 md:pl-4 flex md:block gap-2 overflow-x-auto no-scrollbar"
+                                    role="tablist">
+                                    <li><button type="button"
+                                            class="contact-tab px-4 py-2 rounded text-left font-mono text-sm text-gray-400 hover:text-blue-300 hover:bg-blue-400/5 transition"
+                                            data-target="panel-form">Formulario</button></li>
+                                    <li><button type="button"
+                                            class="contact-tab px-4 py-2 rounded text-left font-mono text-sm text-gray-400 hover:text-blue-300 hover:bg-blue-400/5 transition"
+                                            data-target="panel-email">Email</button></li>
+                                    <li><button type="button"
+                                            class="contact-tab px-4 py-2 rounded text-left font-mono text-sm text-gray-400 hover:text-blue-300 hover:bg-blue-400/5 transition"
+                                            data-target="panel-linkedin">LinkedIn</button></li>
+                                    <li><button type="button"
+                                            class="contact-tab px-4 py-2 rounded text-left font-mono text-sm text-gray-400 hover:text-blue-300 hover:bg-blue-400/5 transition"
+                                            data-target="panel-github">GitHub</button></li>
+                                </ul>
+                            </aside>
+
+                            <!-- PANELES -->
+                            <section id="contactPanels" class="md:col-span-3 space-y-8">
+                                <!-- Formulario -->
+                                <article id="panel-form"
+                                    class="contact-panel rounded-lg border border-gray-800/80 bg-gray-900/30 p-6 reveal"
+                                    data-reveal role="tabpanel">
+                                    <p class="text-lg md:text-xl text-gray-300">¿Tienes un proyecto? Hablemos.</p>
+                                    <form class="mt-6 space-y-4 max-w-xl">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <input type="text" name="name" placeholder="Tu nombre" required
+                                                class="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                                            <input type="email" name="email" placeholder="Tu correo" required
+                                                class="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                                        </div>
+                                        <textarea name="message" rows="5" placeholder="Cuéntame brevemente tu idea"
+                                            required
+                                            class="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"></textarea>
+                                        <button type="submit"
+                                            class="w-full md:w-auto px-6 py-3 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition">Enviar
+                                            mensaje</button>
+                                    </form>
+                                </article>
+
+                                <!-- Email -->
+                                <article id="panel-email"
+                                    class="contact-panel hidden rounded-lg border border-gray-800/80 bg-gray-900/30 p-6 reveal"
+                                    data-reveal role="tabpanel">
+                                    <h3 class="text-2xl font-semibold mb-2">Correo</h3>
+                                    <p class="text-gray-300">jesusleonelcastro@example.com</p>
+                                    <div class="mt-4 flex gap-3">
+                                        <a href="mailto:jesusleonelcastro@example.com"
+                                            class="px-5 py-2.5 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm transition">Escribir</a>
+                                        <button type="button" id="copyEmail"
+                                            class="px-5 py-2.5 rounded-md border border-gray-700 text-gray-300 hover:bg-gray-800 font-mono text-sm transition">Copiar</button>
+                                    </div>
+                                </article>
+
+                                <!-- LinkedIn -->
+                                <article id="panel-linkedin"
+                                    class="contact-panel hidden rounded-lg border border-gray-800/80 bg-gray-900/30 p-6 reveal"
+                                    data-reveal role="tabpanel">
+                                    <h3 class="text-2xl font-semibold mb-2">LinkedIn</h3>
+                                    <p class="text-gray-300">Conecta conmigo en LinkedIn.</p>
+                                    <a href="https://www.linkedin.com/in/tu-perfil" target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="mt-4 inline-block px-5 py-2.5 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm transition">Ir
+                                        a LinkedIn</a>
+                                </article>
+
+                                <!-- GitHub -->
+                                <article id="panel-github"
+                                    class="contact-panel hidden rounded-lg border border-gray-800/80 bg-gray-900/30 p-6 reveal"
+                                    data-reveal role="tabpanel">
+                                    <h3 class="text-2xl font-semibold mb-2">GitHub</h3>
+                                    <p class="text-gray-300">Mira más proyectos y código.</p>
+                                    <a href="https://github.com/JesusLeonelCastro" target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="mt-4 inline-block px-5 py-2.5 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm transition">Ir
+                                        a GitHub</a>
+                                </article>
+                            </section>
+                        </div>
                     </div>
                 </section>
 
