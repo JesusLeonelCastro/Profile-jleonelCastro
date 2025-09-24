@@ -1,78 +1,32 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 
-// Componente Modal independiente
-const ImageModal = ({ isOpen, imageSrc, imageAlt, projectTitle, onClose }) => {
-  if (!isOpen) return null;
-
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
-  return (
-    <div
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
-      onClick={handleBackdropClick}
-    >
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 text-white hover:text-gray-300 z-[10000]"
-      >
-        <X size={32} />
-      </button>
-
-      <div className="max-w-[95vw] max-h-[95vh]">
-        <img
-          src={imageSrc}
-          alt={imageAlt}
-          className="max-w-full max-h-full object-contain"
-        />
-      </div>
-
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-4 py-2 rounded">
-        <p className="text-sm">{projectTitle}</p>
-        <p className="text-xs text-gray-300">{imageAlt}</p>
-      </div>
-    </div>
-  );
-};
+// (Zoom deshabilitado) Se removió el modal de imagen
 
 const ProjectGallery = ({ images, projectTitle }) => {
   const [mainImage, setMainImage] = useState(images[0].src);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Zoom deshabilitado: sin estado de modal
 
   const handleThumbClick = (src, index) => {
     setMainImage(src);
     setActiveIndex(index);
   };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  // Handlers de zoom eliminados
 
   return (
     <>
       <div className="basis-full md:basis-1/2 min-w-0">
-        <div className="relative bg-gray-800/50 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2 group">
+        <div className="relative bg-gray-800/50 rounded-lg border border-gray-800 flex items-center justify-center min-h-[260px] max-h-[420px] p-2">
           <img
             src={mainImage}
             alt={`Vista principal de ${projectTitle}`}
-            className="w-full h-full object-contain transition-all duration-300 cursor-pointer hover:scale-105"
-            onClick={openModal}
+            className="w-full h-full object-contain transition-all duration-300"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg cursor-pointer" onClick={openModal}>
-            <ZoomIn size={32} className="text-white" />
-          </div>
         </div>
         <div className="mt-3 flex gap-2 overflow-x-auto pb-2 thumbs-scroll">
           {images.map((image, index) => (
@@ -87,13 +41,7 @@ const ProjectGallery = ({ images, projectTitle }) => {
         </div>
       </div>
 
-      <ImageModal
-        isOpen={isModalOpen}
-        imageSrc={mainImage}
-        imageAlt={images[activeIndex]?.alt}
-        projectTitle={projectTitle}
-        onClose={closeModal}
-      />
+      {/* Zoom deshabilitado: modal removido */}
     </>
   );
 };
@@ -101,6 +49,37 @@ const ProjectGallery = ({ images, projectTitle }) => {
 const Projects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const trackRef = useRef(null);
+
+  // Restaurar handlers para abrir enlaces (GitHub/Demo)
+  const handleGithubClick = (url) => {
+    try {
+      if (!url || url === '#') {
+        toast({
+          description: 'El repositorio para este proyecto estará disponible pronto.',
+        });
+        return;
+      }
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      console.error('Error abriendo enlace de GitHub:', err);
+      toast({ title: 'Error', description: 'No se pudo abrir el enlace.' });
+    }
+  };
+
+  const handleDemoClick = (url) => {
+    try {
+      if (!url || url === '#') {
+        toast({
+          description: 'La demo para este proyecto estará disponible pronto.',
+        });
+        return;
+      }
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      console.error('Error abriendo demo:', err);
+      toast({ title: 'Error', description: 'No se pudo abrir la demo.' });
+    }
+  };
 
 
 
@@ -134,7 +113,7 @@ const Projects = () => {
         Administrador: 'Gráficos estadísticos - Gestión Usuarios - Gestión Áreas - Gestión Sedes - Gestión Tipos equipos - Gestión Estados - Gestión Fallas reportadas - Gestión Informes técnicos - Gestión Inventario - Reportes PDF.',
         Soporte: 'Crear informes, ver inventario asignado.'
       },
-      technologies: ['C#', '.NET Core', 'Bootstrap', 'LINQ', 'SQL Server'],
+      technologies: ['C#', 'ASP.NET', 'Bootstrap', 'LINQ', 'SQL Server'],
       images: [
         { src: '/proyectos/mdp/muni1.png', alt: 'Dashboard de sistema de TI' },
         { src: '/proyectos/mdp/muni2.png', alt: 'Gestión de inventario de TI' },
@@ -152,7 +131,7 @@ const Projects = () => {
         Detalles: 'Página informativa enfocada en el almacenmamiento y centrelizacion de fotografias y revistas institucionales, con un diseño responsive y optimizada.',
 
       },
-      technologies: ['C#', '.NET Core', 'Bootstrap', 'LINQ', 'SQL Server'],
+      technologies: ['HTML - CSS', 'Bootstrap', 'PHP',],
       images: [
         { src: '/proyectos/beca18/Beca181.png', alt: 'Dashboard de sistema de TI' },
         { src: '/proyectos/beca18/Beca182.png', alt: 'Gestión de inventario de TI' },
@@ -182,8 +161,28 @@ const Projects = () => {
         { src: '/proyectos/sja/san14.png', alt: 'Reportes del sistema' },
 
       ],
-      github: 'https://github.com/JesusLeonelCastro/Sistema-Gestion-Snack_Joe.git',
-      demo: 'https://lavender-crane-734833.hostingersite.com/login'
+      
+    },
+    {
+      title: 'Sistema de Escritorio - Parqueo de transportes pesados',
+      roles: {
+        Administrador: 'Gestion de Vehiculos - Gestion usuarios - Gestion de placas - Configuracion Garaje - Modulos de Ingreso Vehicular - Modulo de Salidas Vehicular- Modulo de Contador - Historial - Reportes PDF.',
+        Empleado: 'Modulos de Ingreso Vehicular - Modulo de Salidas Vehicular- Modulo de Contador - Historial - Reportes PDF.'
+      },
+      technologies: ['Java','Apache NetBeans', 'MySQL', 'MariaDB'],
+      images: [
+        { src: '/proyectos/parqueo/1.png', alt: 'Inicio de sesión' },
+        { src: '/proyectos/parqueo/2.png', alt: 'Dashboard Administrador' },
+        { src: '/proyectos/parqueo/3.png', alt: 'Modulo de Ingresos' },
+        { src: '/proyectos/parqueo/4.png', alt: 'Modulo de Contador' },
+        { src: '/proyectos/parqueo/5.png', alt: 'Modulo de Salidas' },
+        { src: '/proyectos/parqueo/6.png', alt: 'Modulo Historial' },
+        { src: '/proyectos/parqueo/7.png', alt: 'Reportes de Salida Vehicular' },
+        { src: '/proyectos/parqueo/8.png', alt: 'Gestion de Vehiculos' },
+        { src: '/proyectos/parqueo/9.png', alt: 'Dashboard Empleado' },
+
+      ],
+      github: 'https://github.com/JesusLeonelCastro/ESTACIONAMIENTO_SAN_JOSE.git'
     },
   ];
 
@@ -224,15 +223,15 @@ const Projects = () => {
             En mi estadía en la universidad he desarrollado sistemas de automatización tanto personales como para pequeños negocios que querían automatizar sus procesos.
           </p>
 
-          <div className="relative">
-            <div className="overflow-hidden">
+          <div className="relative   "> 
+            <div className="overflow-hidden ">
               <div
                 ref={trackRef}
                 className="flex transition-transform duration-500 ease-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {projects.map((project, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-2">
+                  <div key={index} className="w-full flex-shrink-0 px-2 ">
                     <article className="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
                       <ProjectGallery images={project.images} projectTitle={project.title} />
                       <div className="basis-full md:basis-1/2 min-w-0 flex flex-col">

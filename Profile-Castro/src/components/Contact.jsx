@@ -113,7 +113,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="text-center text-gray-400 text-sm"
           >
-            <p>&copy; 2025 Jesús Leonel Castro. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Jesús Leonel Castro Gutierrez.</p>
           </motion.footer>
         </motion.div>
       </div>

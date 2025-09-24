@@ -17,37 +17,73 @@ const About = () => {
             </h2>
             <div className="flex-1 h-px bg-gray-800"></div>
           </div>
-          
+
           <div className="glass-effect rounded-lg p-8">
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              Soy un desarrollador web y desktop junior que me gusta automatizar procesos y crear soluciones tecnológicas innovadoras. 
-              Mi experiencia se centra en el desarrollo backend con .NET y Java Netbeans, donde he trabajado 
+              Soy un desarrollador web y desktop semi senior que me gusta automatizar procesos y crear soluciones tecnológicas innovadoras.
+              Mi experiencia se centra en el desarrollo backend con .NET y Java Netbeans, donde he trabajado
               en proyectos personales como en producción hasta aplicaciones web modernas.
             </p>
-            
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+
+            <p className="text-gray-300 text-lg leading-relaxed">
               Me gusta seguir las buenas prácticas de desarrollo, escribiendo código legible, mantenible y escalable. Siempre me gusta estar en constante aprendizaje para
               mantenerme actualizado con las últimas tecnologías y tendencias del sector.
             </p>
+          </div>
+          
+          <h2 className='text-2xl font-bold text-blue-500 mt-8 mb-4'>Tecnologias</h2>
+         
+          <div className="grid grid-cols-2 gap-4">
+            <div className="glass-effect rounded-lg p-8 text-center ">
+              <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4">FRONTEND</h2>
+              <i class="devicon-html5-plain colored text-4xl m-2"></i>
+              <i class="devicon-css3-plain colored text-4xl m-2"></i>
+              <i class="devicon-javascript-plain colored text-4xl m-2"></i>
+              <i class="devicon-bootstrap-plain colored text-4xl  m-2"></i>
+              <i class="devicon-tailwindcss-plain colored text-4xl m-2"></i>
+              <br />
+              <i class="devicon-react-plain colored text-4xl m-2"></i>
+              <i class="devicon-angularjs-plain colored text-4xl m-2"></i>
 
-            <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4">Tecnologías</h2>
+            </div>
+            <div className="glass-effect rounded-lg p-8 text-center">
+              <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4 text-center">BACKEND</h2>
+              <i class="devicon-csharp-plain colored text-4xl m-2"></i>
+              <i class="devicon-java-plain colored text-4xl m-2"></i>
+              <i class="devicon-nodejs-plain-wordmark text-4xl m-2 text-green-400"></i>
+              <i class="devicon-github-plain colored text-4xl m-2"></i>
+              <i class="devicon-git-plain colored text-4xl m-2"></i>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-              {['C#', '.NET Core', 'ASP.NET', 'SQL Server', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'Git'].map((tech, index) => (
-                <motion.div
-                  key={tech}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="tech-badge rounded-lg px-3 py-2 text-center text-sm font-medium"
-                >
-                  {tech}
-                </motion.div>
-              ))}
+
+
+              <br />
+
+
+
+
+            </div>
+            <div className="glass-effect rounded-lg p-8 text-center">
+              <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4 text-center">DEVOPS</h2>
+              <i class="devicon-azure-plain colored text-4xl m-2"></i>
+              <i class="devicon-amazonwebservices-plain colored text-4xl m-2"></i>
+
+
+
+
+
+            </div>
+            <div className="glass-effect rounded-lg p-8 text-center">
+              <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4 text-center">BASE DE DATOS</h2>
+              <i class="devicon-microsoftsqlserver-plain colored text-4xl m-2"></i>
+              <i class="devicon-mysql-plain colored text-4xl m-2"></i>
+              <i class="devicon-firebase-plain colored text-4xl m-2"></i>
+              <i class="devicon-supabase-plain colored text-4xl m-2"></i>
             </div>
           </div>
+
+
         </motion.div>
+
       </div>
     </section>
   );

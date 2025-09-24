@@ -94,8 +94,8 @@ const Experience = () => {
           >
             {experiences.map((exp, index) => (
               <motion.div key={index} variants={itemVariants} className="experience-item">
-                <div className="glass-effect rounded-lg p-6">
-                  <h3 className="text-xl font-bold text-white mb-1">
+                <div className="glass-effect rounded-lg p-6 ">
+                  <h3 className="text-xl font-bold text-white mb-1 ">
                     {exp.title} • <span className="text-blue-400">{exp.company}</span>
                   </h3>
                   <p className="text-gray-400 text-sm mb-4">{exp.period}</p>

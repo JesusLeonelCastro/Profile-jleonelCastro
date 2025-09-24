@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   const navItems = [
-    { id: 'about', label: '2. Acercad de mi' },
+    { id: 'about', label: '2. Acerca de mi' },
     { id: 'experience', label: '3. Experiencia' },
     { id: 'projects', label: '4. Proyectos' },
     { id: 'contact', label: '5. Contacto' }
@@ -57,7 +57,7 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => scrollToSection(item.id)}
-                className="text-2 text-gray-300 hover:text-blue-400 transition-colors duration-300"
+                className="text-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 font-mono"
               >
                 {item.label}
               </motion.button>
@@ -85,7 +85,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300"
+                className="block w-full text-left py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 font-mono"
               >
                 {item.label}
               </button>
