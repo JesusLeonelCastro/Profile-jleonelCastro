@@ -55,7 +55,7 @@ const Projects = () => {
     try {
       if (!url || url === '#') {
         toast({
-          description: 'El repositorio para este proyecto estará disponible pronto.',
+          description: 'El repositorio no disponible.',
         });
         return;
       }
@@ -70,7 +70,7 @@ const Projects = () => {
     try {
       if (!url || url === '#') {
         toast({
-          description: 'La demo para este proyecto estará disponible pronto.',
+          description: 'Demo no disponible.',
         });
         return;
       }
@@ -231,8 +231,8 @@ const Projects = () => {
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {projects.map((project, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-2 ">
-                    <article className="group relative p-5 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6">
+                  <div key={index} className="w-full flex-shrink-0 px-2 "> 
+                    <article className=" group relative p-5 rounded-3xl border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6 md:p-8">
                       <ProjectGallery images={project.images} projectTitle={project.title} />
                       <div className="basis-full md:basis-1/2 min-w-0 flex flex-col">
                         <h3 className="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
@@ -275,7 +275,7 @@ const Projects = () => {
               onClick={() => handleGithubClick('https://github.com/JesusLeonelCastro')}
               className="inline-block px-6 py-2 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition"
             >
-              Ver más en GitHub
+              GitHub
             </Button>
           </motion.div>
         </motion.div>

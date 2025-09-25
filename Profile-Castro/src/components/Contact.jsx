@@ -99,8 +99,8 @@ const Contact = () => {
                 </div>
                 <p className="text-gray-400 truncate mb-auto">{social.user}</p>
                 <div className="mt-4">
-                  <span className="text-blue-400 font-medium group-hover:underline">
-                    {social.cta} &rarr;
+                  <span className="text-blue-400 font-medium ">
+                    {social.cta} 
                   </span>
                 </div>
               </motion.div>

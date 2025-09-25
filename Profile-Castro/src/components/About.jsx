@@ -1,6 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// Variantes de animación
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const iconsContainer = {
+  show: { transition: { staggerChildren: 0.06 } },
+};
+
+const iconVariants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: 'spring', stiffness: 240, damping: 18 },
+  },
+};
+
 const About = () => {
   return (
     <section id="about" className="section-padding">
@@ -18,7 +37,7 @@ const About = () => {
             <div className="flex-1 h-px bg-gray-800"></div>
           </div>
 
-          <div className="glass-effect rounded-lg p-8">
+          <div className="glass-effect rounded-lg p-8 ">
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
               Soy un desarrollador web y desktop semi senior que me gusta automatizar procesos y crear soluciones tecnológicas innovadoras.
               Mi experiencia se centra en el desarrollo backend con .NET y Java Netbeans, donde he trabajado
@@ -26,64 +45,159 @@ const About = () => {
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              Me gusta seguir las buenas prácticas de desarrollo, escribiendo código legible, mantenible y escalable. Siempre me gusta estar en constante aprendizaje para
+              Mi enfoque es seguir las buenas prácticas de desarrollo, escribiendo código legible, mantenible y escalable. Estoy en continua formación para
               mantenerme actualizado con las últimas tecnologías y tendencias del sector.
             </p>
           </div>
-          
-          <h2 className='text-2xl font-bold text-blue-500 mt-8 mb-4'>Tecnologias</h2>
-         
-          <div className="grid grid-cols-2 gap-4">
-            <div className="glass-effect rounded-lg p-8 text-center ">
-              <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4">FRONTEND</h2>
-              <i class="devicon-html5-plain colored text-4xl m-2"></i>
-              <i class="devicon-css3-plain colored text-4xl m-2"></i>
-              <i class="devicon-javascript-plain colored text-4xl m-2"></i>
-              <i class="devicon-bootstrap-plain colored text-4xl  m-2"></i>
-              <i class="devicon-tailwindcss-plain colored text-4xl m-2"></i>
-              <br />
-              <i class="devicon-react-plain colored text-4xl m-2"></i>
-              <i class="devicon-angularjs-plain colored text-4xl m-2"></i>
 
-            </div>
-            <div className="glass-effect rounded-lg p-8 text-center">
-              <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4 text-center">BACKEND</h2>
-              <i class="devicon-csharp-plain colored text-4xl m-2"></i>
-              <i class="devicon-java-plain colored text-4xl m-2"></i>
-              <i class="devicon-nodejs-plain-wordmark text-4xl m-2 text-green-400"></i>
-              <i class="devicon-github-plain colored text-4xl m-2"></i>
-              <i class="devicon-git-plain colored text-4xl m-2"></i>
+<br />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+           
+            <motion.div
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+              className="glass-effect rounded-lg p-6 md:p-8 text-center"
+            >
+              
+              <motion.div
+                variants={iconsContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-4xl"
+              >
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12, rotate: -2 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-html5-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12, rotate: 2 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-css3-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-javascript-plain colored"></i>
+                </motion.span>
+                
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }} >
+                  <i className="devicon-bootstrap-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-tailwindcss-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-react-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-typescript-plain colored"></i>
+                </motion.span>
+                
+              </motion.div>
+            </motion.div>
 
+            {/* BACKEND */}
+            <motion.div
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+              className="glass-effect rounded-lg p-6 md:p-8 text-center"
+            >
+              
+              <motion.div
+                variants={iconsContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-4xl"
+              >
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }} >
+                  <i className="devicon-csharp-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-java-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-apache-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-nodejs-plain-wordmark text-green-400"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-github-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-git-plain colored"></i>
+                </motion.span>
+              </motion.div>
+            </motion.div>
 
+            {/* DEVOPS */}
+            <motion.div
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+              className="glass-effect rounded-lg p-6 md:p-8 text-center"
+            >
+              
 
-              <br />
+              <motion.div
+                variants={iconsContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-4xl"
+              >
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-azure-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-amazonwebservices-plain colored"></i>
+                </motion.span>
+              </motion.div>
+            </motion.div>
 
+            {/* BASE DE DATOS */}
+            <motion.div
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+              className="glass-effect rounded-lg p-6 md:p-8 text-center"
+            >
+              
 
-
-
-            </div>
-            <div className="glass-effect rounded-lg p-8 text-center">
-              <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4 text-center">DEVOPS</h2>
-              <i class="devicon-azure-plain colored text-4xl m-2"></i>
-              <i class="devicon-amazonwebservices-plain colored text-4xl m-2"></i>
-
-
-
-
-
-            </div>
-            <div className="glass-effect rounded-lg p-8 text-center">
-              <h2 className="text-2xl font-bold text-blue-500 mt-8 mb-4 text-center">BASE DE DATOS</h2>
-              <i class="devicon-microsoftsqlserver-plain colored text-4xl m-2"></i>
-              <i class="devicon-mysql-plain colored text-4xl m-2"></i>
-              <i class="devicon-firebase-plain colored text-4xl m-2"></i>
-              <i class="devicon-supabase-plain colored text-4xl m-2"></i>
-            </div>
+              <motion.div
+                variants={iconsContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-4xl"
+              >
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-microsoftsqlserver-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-mysql-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-firebase-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-supabase-plain colored"></i>
+                </motion.span>
+              </motion.div>
+            </motion.div>
           </div>
-
-
         </motion.div>
-
       </div>
     </section>
   );
