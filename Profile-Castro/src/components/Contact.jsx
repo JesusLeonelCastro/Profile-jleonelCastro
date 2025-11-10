@@ -78,9 +78,7 @@ const Contact = () => {
             <div className="flex-1 h-px bg-gray-800"></div>
           </div>
           
-          <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto">
-            Todas mis redes sociales est&aacute;n actualizadas y activas.
-          </p>
+          <br />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {socialLinks.map((social, index) => (

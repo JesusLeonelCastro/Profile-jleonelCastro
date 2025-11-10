@@ -219,7 +219,7 @@ const Projects = () => {
             <div className="flex-1 h-px bg-gray-800"></div>
           </div>
 
-          <p className="text-gray-300 text-lg mb-12 max-w-3xl">
+          <p className="text-gray-300 text-lg mb-12 max-w-3xl opacity-70 hover:opacity-100 transition-opacity " >
             En mi estadía en la universidad he desarrollado sistemas de automatización tanto personales como para pequeños negocios que querían automatizar sus procesos.
           </p>
 
@@ -273,7 +273,7 @@ const Projects = () => {
           >
             <Button
               onClick={() => handleGithubClick('https://github.com/JesusLeonelCastro')}
-              className="inline-block px-6 py-2 rounded-md border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition"
+              className=" rounded-full px-6 py-2  border border-blue-400 text-blue-400 hover:bg-blue-400/10 font-mono text-sm tracking-wide transition"
             >
               GitHub
             </Button>

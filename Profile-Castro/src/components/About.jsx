@@ -38,13 +38,13 @@ const About = () => {
           </div>
 
           <div className="glass-effect rounded-lg p-8 ">
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+            <p className="text-gray-300 text-lg leading-relaxed mb-6 opacity-70 hover:opacity-90 transition-opacity">
               Soy un desarrollador web y desktop semi senior que me gusta automatizar procesos y crear soluciones tecnológicas innovadoras.
               Mi experiencia se centra en el desarrollo backend con .NET y Java Netbeans, donde he trabajado
-              en proyectos personales como en producción hasta aplicaciones web modernas.
+              en proyectos personales como en producción hasta aplicaciones web modernas. Recientemente he ampliado mis conocimientos con tecnologías frontend como Angular y frameworks de backend como Node.js Express.
             </p>
 
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-gray-300 text-lg leading-relaxed  opacity-70 hover:opacity-90 transition-opacity">
               Mi enfoque es seguir las buenas prácticas de desarrollo, escribiendo código legible, mantenible y escalable. Estoy en continua formación para
               mantenerme actualizado con las últimas tecnologías y tendencias del sector.
             </p>
@@ -68,7 +68,7 @@ const About = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-4xl"
+                className="flex flex-wrap justify-center gap-3 md:gap-4 text-2xl md:text-3xl overflow-visible"
               >
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12, rotate: -2 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-html5-plain colored"></i>
@@ -81,7 +81,7 @@ const About = () => {
                 </motion.span>
                 
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }} >
-                  <i className="devicon-bootstrap-plain colored"></i>
+                  <i className="devicon-typescript-plain colored"></i>
                 </motion.span>
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-tailwindcss-plain colored"></i>
@@ -90,10 +90,15 @@ const About = () => {
                   <i className="devicon-react-plain colored"></i>
                 </motion.span>
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
-                  <i className="devicon-typescript-plain colored"></i>
+                  <i className="devicon-angularjs-plain colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-bootstrap-plain colored"></i>
                 </motion.span>
                 
+                
               </motion.div>
+              
             </motion.div>
 
             {/* BACKEND */}
@@ -112,7 +117,7 @@ const About = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-4xl"
+                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-3xl"
               >
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }} >
                   <i className="devicon-csharp-plain colored"></i>
@@ -127,11 +132,15 @@ const About = () => {
                   <i className="devicon-nodejs-plain-wordmark text-green-400"></i>
                 </motion.span>
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-express-original colored"></i>
+                </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-github-plain colored"></i>
                 </motion.span>
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-git-plain colored"></i>
                 </motion.span>
+                
               </motion.div>
             </motion.div>
 
@@ -152,7 +161,7 @@ const About = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-4xl"
+                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-3xl"
               >
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-azure-plain colored"></i>
@@ -180,7 +189,7 @@ const About = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-4xl"
+                className="flex flex-wrap justify-center gap-3 md:gap-4 text-3xl md:text-3xl"
               >
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-microsoftsqlserver-plain colored"></i>
@@ -194,8 +203,12 @@ const About = () => {
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-supabase-plain colored"></i>
                 </motion.span>
+                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+                  <i className="devicon-mongodb-plain colored"></i>
+                </motion.span>
               </motion.div>
             </motion.div>
+
           </div>
         </motion.div>
       </div>

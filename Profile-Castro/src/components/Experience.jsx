@@ -94,7 +94,7 @@ const Experience = () => {
           >
             {experiences.map((exp, index) => (
               <motion.div key={index} variants={itemVariants} className="experience-item">
-                <div className="glass-effect rounded-lg p-6 ">
+                <div className="glass-effect rounded-lg p-6 opacity-60 hover:opacity-100 transition-opacity">
                   <h3 className="text-xl font-bold text-white mb-1 ">
                     {exp.title} • <span className="text-blue-400">{exp.company}</span>
                   </h3>
