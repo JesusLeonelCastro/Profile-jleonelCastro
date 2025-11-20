@@ -197,9 +197,7 @@ const About = () => {
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-mysql-plain colored"></i>
                 </motion.span>
-                <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
-                  <i className="devicon-firebase-plain colored"></i>
-                </motion.span>
+                
                 <motion.span variants={iconVariants} whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
                   <i className="devicon-supabase-plain colored"></i>
                 </motion.span>
