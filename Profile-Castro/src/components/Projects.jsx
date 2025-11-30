@@ -11,6 +11,8 @@ const ProjectGallery = ({ images, projectTitle }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   // Zoom deshabilitado: sin estado de modal
 
+
+
   const handleThumbClick = (src, index) => {
     setMainImage(src);
     setActiveIndex(index);
@@ -48,7 +50,11 @@ const ProjectGallery = ({ images, projectTitle }) => {
 
 const Projects = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [subCurrentSlide, setSubCurrentSlide] = useState(0);
+
   const trackRef = useRef(null);
+  const subTrackRef = useRef(null); // <-- ref independiente para subproyectos
+
 
   // Restaurar handlers para abrir enlaces (GitHub/Demo)
   const handleGithubClick = (url) => {
@@ -65,6 +71,7 @@ const Projects = () => {
       toast({ title: 'Error', description: 'No se pudo abrir el enlace.' });
     }
   };
+
 
   const handleDemoClick = (url) => {
     try {
@@ -161,7 +168,7 @@ const Projects = () => {
         { src: '/proyectos/sja/san14.png', alt: 'Reportes del sistema' },
 
       ],
-      
+
     },
     {
       title: 'Sistema de Escritorio - Parqueo de transportes pesados',
@@ -169,7 +176,7 @@ const Projects = () => {
         Administrador: 'Gestion de Vehiculos - Gestion usuarios - Gestion de placas - Configuracion Garaje - Modulos de Ingreso Vehicular - Modulo de Salidas Vehicular- Modulo de Contador - Historial - Reportes PDF.',
         Empleado: 'Modulos de Ingreso Vehicular - Modulo de Salidas Vehicular- Modulo de Contador - Historial - Reportes PDF.'
       },
-      technologies: ['Java','Apache NetBeans', 'MySQL', 'MariaDB'],
+      technologies: ['Java', 'Apache NetBeans', 'MySQL', 'MariaDB'],
       images: [
         { src: '/proyectos/parqueo/1.png', alt: 'Inicio de sesión' },
         { src: '/proyectos/parqueo/2.png', alt: 'Dashboard Administrador' },
@@ -186,6 +193,27 @@ const Projects = () => {
     },
   ];
 
+  const subprojects = [
+    {
+      title: 'Gestion de Blogs',
+      roles: {
+        Administrador: 'Login JWT - Crear Usario - Editar Usario - Listar de todos los usuario - Lista de todos los articulos - Crear Articulo - Editar Articulo - Eliminar Articulo - Vista de articulos publicados.',
+      },
+      technologies: ['Angular', 'Express', 'Node.js', 'Tailwind', 'MopngoDB', 'Flowbite'],
+      images: [
+        { src: '/proyectos/blog/login.png', alt: 'Login de Blog' },
+        { src: '/proyectos/blog/crearuser.png', alt: 'Dashboard de Blog Personal' },
+        { src: '/proyectos/blog/listusers.png', alt: 'Gestión de artículos' },
+        { src: '/proyectos/blog/crear.png', alt: 'Creación de artículos' },
+        { src: '/proyectos/blog/listarticles.png', alt: 'Historial de artículos' },
+        { src: '/proyectos/blog/myaticle.png', alt: 'Historial de artículos' },
+
+
+      ],
+      github: 'https://github.com/JesusLeonelCastro/Sistema-Blog-OpenIA-Cstr',
+    }
+  ];
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
@@ -193,6 +221,17 @@ const Projects = () => {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
+
+  const subnextSlide = () => {
+    setSubCurrentSlide((prev) => (prev === subprojects.length - 1 ? 0 : prev + 1));
+  };
+
+  const subprevSlide = () => {
+    setSubCurrentSlide((prev) => (prev === 0 ? subprojects.length - 1 : prev - 1));
+  };
+
+
+
 
   const CustomArrow = ({ direction, onClick }) => (
     <button
@@ -223,47 +262,107 @@ const Projects = () => {
             En mi estadía en la universidad he desarrollado sistemas de automatización tanto personales como para pequeños negocios que querían automatizar sus procesos.
           </p>
 
-          <div className="relative   "> 
-            <div className="overflow-hidden ">
-              <div
-                ref={trackRef}
-                className="flex transition-transform duration-500 ease-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              >
-                {projects.map((project, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-2 "> 
-                    <article className=" group relative p-5 rounded-3xl border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6 md:p-8">
-                      <ProjectGallery images={project.images} projectTitle={project.title} />
-                      <div className="basis-full md:basis-1/2 min-w-0 flex flex-col">
-                        <h3 className="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
-                          {project.title}
-                        </h3>
-                        <div className="space-y-3 mb-4 text-sm">
-                          {Object.entries(project.roles).map(([role, desc]) => (
-                            <p key={role} className="text-gray-400 leading-relaxed">
-                              <span className="font-semibold text-blue-300">{role}</span> - {desc}
-                            </p>
-                          ))}
+          <div>
+            {/* Carrusel principal */}
+            <div className="relative">
+              <div className="overflow-hidden">
+                <div
+                  ref={trackRef}
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {projects.map((project, index) => (
+                    <div key={index} className="w-full flex-shrink-0 px-2">
+                      <article className="group relative p-5 rounded-3xl border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6 md:p-8">
+                        <ProjectGallery images={project.images} projectTitle={project.title} />
+                        <div className="basis-full md:basis-1/2 min-w-0 flex flex-col">
+                          <h3 className="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
+                            {project.title}
+                          </h3>
+                          <div className="space-y-3 mb-4 text-sm">
+                            {Object.entries(project.roles).map(([role, desc]) => (
+                              <p key={role} className="text-gray-400 leading-relaxed">
+                                <span className="font-semibold text-blue-300">{role}</span> - {desc}
+                              </p>
+                            ))}
+                          </div>
+                          <p className="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías</p>
+                          <ul className="flex flex-wrap gap-2 text-xs font-mono mb-6">
+                            {project.technologies.map((tech) => (
+                              <li key={tech} className="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">
+                                {tech}
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="mt-auto flex gap-4 text-sm">
+                            <button onClick={() => handleGithubClick(project.github)} className="text-gray-400 hover:text-blue-400">GitHub</button>
+                            <button onClick={() => handleDemoClick(project.demo)} className="text-gray-400 hover:text-blue-400">Demo</button>
+                          </div>
                         </div>
-                        <p className="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías</p>
-                        <ul className="flex flex-wrap gap-2 text-xs font-mono mb-6">
-                          {project.technologies.map((tech) => (
-                            <li key={tech} className="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">{tech}</li>
-                          ))}
-                        </ul>
-                        <div className="mt-auto flex gap-4 text-sm">
-                          <button onClick={() => handleGithubClick(project.github)} className="text-gray-400 hover:text-blue-400">GitHub</button>
-                          <button onClick={() => handleDemoClick(project.demo)} className="text-gray-400 hover:text-blue-400">Demo</button>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                ))}
+                      </article>
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              {/* Flechas de este carrusel (fuera del overflow-hidden) */}
+              <CustomArrow direction="left" onClick={prevSlide} />
+              <CustomArrow direction="right" onClick={nextSlide} />
             </div>
-            <CustomArrow direction="left" onClick={prevSlide} />
-            <CustomArrow direction="right" onClick={nextSlide} />
+
+            <h3 className="text-2xl md:text-3xl font-bold m-4">
+              <span className="gradient-text">03.1 Sub-proyectos</span>
+            </h3>
+
+            {/* Carrusel de sub-proyectos */}
+            <div className="relative">
+              <div className="overflow-hidden">
+                <div
+                  ref={subTrackRef}
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${subCurrentSlide * 100}%)` }}
+                >
+                  {subprojects.map((project, index) => (
+                    <div key={index} className="w-full flex-shrink-0 px-2">
+                      <article className="group relative p-5 rounded-3xl border border-gray-800 bg-gray-900/40 hover:border-blue-400 transition flex flex-col md:flex-row gap-6 md:p-8">
+                        <ProjectGallery images={project.images} projectTitle={project.title} />
+                        <div className="basis-full md:basis-1/2 min-w-0 flex flex-col">
+                          <h3 className="text-2xl font-semibold mb-3 group-hover:text-blue-300 transition">
+                            {project.title}
+                          </h3>
+                          <div className="space-y-3 mb-4 text-sm">
+                            {Object.entries(project.roles).map(([role, desc]) => (
+                              <p key={role} className="text-gray-400 leading-relaxed">
+                                <span className="font-semibold text-blue-300">{role}</span> - {desc}
+                              </p>
+                            ))}
+                          </div>
+                          <p className="mb-4 font-semibold group-hover:text-blue-300 transition">Tecnologías</p>
+                          <ul className="flex flex-wrap gap-2 text-xs font-mono mb-6">
+                            {project.technologies.map((tech) => (
+                              <li key={tech} className="px-2 py-1 bg-blue-500/10 text-blue-300 rounded">
+                                {tech}
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="mt-auto flex gap-4 text-sm">
+                            <button onClick={() => handleGithubClick(project.github)} className="text-gray-400 hover:text-blue-400">GitHub</button>
+                            <button onClick={() => handleDemoClick(project.demo)} className="text-gray-400 hover:text-blue-400">Demo</button>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Flechas de este carrusel */}
+              <CustomArrow direction="left" onClick={subprevSlide} />
+              <CustomArrow direction="right" onClick={subnextSlide} />
+            </div>
           </div>
+
+
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
